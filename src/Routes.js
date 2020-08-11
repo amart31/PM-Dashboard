@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Redirect } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
 import { RouteWithLayout } from './components';
 import { Main as MainLayout, Minimal as MinimalLayout } from './layouts';
@@ -20,7 +20,7 @@ import Typography from './views/Typography/Typography';
 const Routes = () => {
   return (
     <Switch>
-      
+    <Route exact path="/" component={DashboardView} />
       <RouteWithLayout
         component={DashboardView}
         exact
