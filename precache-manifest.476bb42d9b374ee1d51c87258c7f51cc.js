@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "cbdcf53927557da18c16f74015579878",
+    "revision": "e28213c89e3ac0d3422a30e2fa59b4ee",
     "url": "/PM-Dashboard/index.html"
   },
   {
-    "revision": "7b8d1bfc81a0c3a53f6c",
+    "revision": "5ac08f06dda0364c5d9c",
     "url": "/PM-Dashboard/static/css/2.18fb2ca0.chunk.css"
   },
   {
-    "revision": "2d9b6d8bd3398725e286",
+    "revision": "8f362086646d2d2827b0",
     "url": "/PM-Dashboard/static/css/main.fec45a73.chunk.css"
   },
   {
-    "revision": "7b8d1bfc81a0c3a53f6c",
-    "url": "/PM-Dashboard/static/js/2.a49488ce.chunk.js"
+    "revision": "5ac08f06dda0364c5d9c",
+    "url": "/PM-Dashboard/static/js/2.33fa9407.chunk.js"
   },
   {
     "revision": "286624c8d95769e3759a2a7869634d07",
-    "url": "/PM-Dashboard/static/js/2.a49488ce.chunk.js.LICENSE.txt"
+    "url": "/PM-Dashboard/static/js/2.33fa9407.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "2d9b6d8bd3398725e286",
-    "url": "/PM-Dashboard/static/js/main.8a632c1c.chunk.js"
+    "revision": "8f362086646d2d2827b0",
+    "url": "/PM-Dashboard/static/js/main.765bc774.chunk.js"
   },
   {
     "revision": "8b57f32bd749cff5ef64",
