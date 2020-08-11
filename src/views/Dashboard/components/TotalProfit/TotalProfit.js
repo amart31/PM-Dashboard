@@ -5,6 +5,8 @@ import { makeStyles } from '@material-ui/styles';
 import { Card, CardContent, Grid, Typography, Avatar } from '@material-ui/core';
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 
+import AccessTimeIcon from '@material-ui/icons/AccessTime';
+
 const useStyles = makeStyles(theme => ({
   root: {
     height: '100%',
@@ -52,18 +54,18 @@ const TotalProfit = props => {
               gutterBottom
               variant="body2"
             >
-              TOTAL PROFIT
+              TOTAL HOURS
             </Typography>
             <Typography
               color="inherit"
               variant="h3"
             >
-              $23,200
+              321
             </Typography>
           </Grid>
           <Grid item>
             <Avatar className={classes.avatar}>
-              <AttachMoneyIcon className={classes.icon} />
+              <AccessTimeIcon className={classes.icon} />
             </Avatar>
           </Grid>
         </Grid>

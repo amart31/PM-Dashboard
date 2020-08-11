@@ -11,10 +11,10 @@ import {
   Divider,
   Typography
 } from '@material-ui/core';
-import LaptopMacIcon from '@material-ui/icons/LaptopMac';
-import PhoneIphoneIcon from '@material-ui/icons/PhoneIphone';
+import WorkIcon from '@material-ui/icons/Work';
+import WorkOutlineIcon from '@material-ui/icons/WorkOutline';
+import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn';
 import RefreshIcon from '@material-ui/icons/Refresh';
-import TabletMacIcon from '@material-ui/icons/TabletMac';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -58,7 +58,7 @@ const UsersByDevice = props => {
         hoverBorderColor: theme.palette.white
       }
     ],
-    labels: ['Desktop', 'Tablet', 'Mobile']
+    labels: ['Pending', 'In-Progress', 'Done']
   };
 
   const options = {
@@ -85,21 +85,21 @@ const UsersByDevice = props => {
 
   const devices = [
     {
-      title: 'Desktop',
+      title: 'In-Progress',
       value: '63',
-      icon: <LaptopMacIcon />,
+      icon: <WorkIcon />,
       color: theme.palette.primary.main
     },
     {
-      title: 'Tablet',
+      title: 'Pending',
       value: '15',
-      icon: <TabletMacIcon />,
+      icon: <WorkOutlineIcon />,
       color: theme.palette.error.main
     },
     {
-      title: 'Mobile',
+      title: 'Done',
       value: '23',
-      icon: <PhoneIphoneIcon />,
+      icon: <AssignmentTurnedInIcon />,
       color: theme.palette.warning.main
     }
   ];
@@ -115,7 +115,7 @@ const UsersByDevice = props => {
             <RefreshIcon />
           </IconButton>
         }
-        title="Users By Device"
+        title="Tasks By Status"
       />
       <Divider />
       <CardContent>

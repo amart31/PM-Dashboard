@@ -45,9 +45,10 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const statusColors = {
-  delivered: 'success',
-  pending: 'info',
-  refunded: 'danger'
+  Done: 'success',
+  Pending: 'info',
+  Stuck: 'danger',
+  InProgress: 'warning'
 };
 
 const LatestOrders = props => {
@@ -72,7 +73,7 @@ const LatestOrders = props => {
             New entry
           </Button>
         }
-        title="Latest Orders"
+        title="Latest Tasks"
       />
       <Divider />
       <CardContent className={classes.content}>
@@ -81,8 +82,8 @@ const LatestOrders = props => {
             <Table>
               <TableHead>
                 <TableRow>
-                  <TableCell>Order Ref</TableCell>
-                  <TableCell>Customer</TableCell>
+                  <TableCell>Task Ref</TableCell>
+                  <TableCell>Employee</TableCell>
                   <TableCell sortDirection="desc">
                     <Tooltip
                       enterDelay={300}

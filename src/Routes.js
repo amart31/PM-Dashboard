@@ -8,7 +8,6 @@ import {
   Dashboard as DashboardView,
   ProductList as ProductListView,
   UserList as UserListView,
-  Typography as TypographyView,
   Icons as IconsView,
   Account as AccountView,
   Settings as SettingsView,
@@ -17,6 +16,7 @@ import {
   NotFound as NotFoundView
 } from './views';
 
+import Typography from './views/Typography/Typography';
 const Routes = () => {
   return (
     <Switch>
@@ -44,7 +44,7 @@ const Routes = () => {
         path="/products"
       />
       <RouteWithLayout
-        component={TypographyView}
+        component={Typography}
         exact
         layout={MainLayout}
         path="/typography"
