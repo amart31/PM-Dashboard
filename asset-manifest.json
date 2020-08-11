@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/PM-Dashboard/static/css/main.fec45a73.chunk.css",
-    "main.js": "/PM-Dashboard/static/js/main.765bc774.chunk.js",
-    "main.js.map": "/PM-Dashboard/static/js/main.765bc774.chunk.js.map",
-    "runtime-main.js": "/PM-Dashboard/static/js/runtime-main.4d4bb08c.js",
-    "runtime-main.js.map": "/PM-Dashboard/static/js/runtime-main.4d4bb08c.js.map",
-    "static/css/2.18fb2ca0.chunk.css": "/PM-Dashboard/static/css/2.18fb2ca0.chunk.css",
-    "static/js/2.33fa9407.chunk.js": "/PM-Dashboard/static/js/2.33fa9407.chunk.js",
-    "static/js/2.33fa9407.chunk.js.map": "/PM-Dashboard/static/js/2.33fa9407.chunk.js.map",
-    "index.html": "/PM-Dashboard/index.html",
-    "precache-manifest.476bb42d9b374ee1d51c87258c7f51cc.js": "/PM-Dashboard/precache-manifest.476bb42d9b374ee1d51c87258c7f51cc.js",
-    "service-worker.js": "/PM-Dashboard/service-worker.js",
-    "static/css/2.18fb2ca0.chunk.css.map": "/PM-Dashboard/static/css/2.18fb2ca0.chunk.css.map",
-    "static/css/main.fec45a73.chunk.css.map": "/PM-Dashboard/static/css/main.fec45a73.chunk.css.map",
-    "static/js/2.33fa9407.chunk.js.LICENSE.txt": "/PM-Dashboard/static/js/2.33fa9407.chunk.js.LICENSE.txt"
+    "main.css": "/dashboard/static/css/main.fec45a73.chunk.css",
+    "main.js": "/dashboard/static/js/main.3afc4cd5.chunk.js",
+    "main.js.map": "/dashboard/static/js/main.3afc4cd5.chunk.js.map",
+    "runtime-main.js": "/dashboard/static/js/runtime-main.8e53e24a.js",
+    "runtime-main.js.map": "/dashboard/static/js/runtime-main.8e53e24a.js.map",
+    "static/css/2.18fb2ca0.chunk.css": "/dashboard/static/css/2.18fb2ca0.chunk.css",
+    "static/js/2.5b369cd9.chunk.js": "/dashboard/static/js/2.5b369cd9.chunk.js",
+    "static/js/2.5b369cd9.chunk.js.map": "/dashboard/static/js/2.5b369cd9.chunk.js.map",
+    "index.html": "/dashboard/index.html",
+    "precache-manifest.c70b2e2a93e21d3da8f5df259cbe25b2.js": "/dashboard/precache-manifest.c70b2e2a93e21d3da8f5df259cbe25b2.js",
+    "service-worker.js": "/dashboard/service-worker.js",
+    "static/css/2.18fb2ca0.chunk.css.map": "/dashboard/static/css/2.18fb2ca0.chunk.css.map",
+    "static/css/main.fec45a73.chunk.css.map": "/dashboard/static/css/main.fec45a73.chunk.css.map",
+    "static/js/2.5b369cd9.chunk.js.LICENSE.txt": "/dashboard/static/js/2.5b369cd9.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.4d4bb08c.js",
+    "static/js/runtime-main.8e53e24a.js",
     "static/css/2.18fb2ca0.chunk.css",
-    "static/js/2.33fa9407.chunk.js",
+    "static/js/2.5b369cd9.chunk.js",
     "static/css/main.fec45a73.chunk.css",
-    "static/js/main.765bc774.chunk.js"
+    "static/js/main.3afc4cd5.chunk.js"
   ]
 }
