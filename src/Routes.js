@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Redirect } from 'react-router-dom';
 
 import { RouteWithLayout } from './components';
 import { Main as MainLayout, Minimal as MinimalLayout } from './layouts';
@@ -20,12 +20,16 @@ import Typography from './views/Typography/Typography';
 const Routes = () => {
   return (
     <Switch>
-    <Route exact path="/" component={DashboardView} />
+    <Redirect
+        exact
+        from="/"
+        to="/dashboard"
+      />
       <RouteWithLayout
         component={DashboardView}
         exact
         layout={MainLayout}
-        path="/"
+        path="/dashboard"
       />
       <RouteWithLayout
         component={UserListView}
@@ -81,6 +85,7 @@ const Routes = () => {
         layout={MinimalLayout}
         path="/not-found"
       />
+      <Redirect to="/not-found" />
     </Switch>
   );
 };
