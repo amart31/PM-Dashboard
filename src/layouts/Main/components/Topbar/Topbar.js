@@ -38,7 +38,7 @@ const Topbar = props => {
             alt="Logo"
             width="100" 
             height="60"
-            src="/images/logos/logo--white.png"
+            src="https://github.com/amart31/PM-Dashboard/blob/master/public/images/logos/logo--white.png?raw=true"
           />
         </RouterLink>
         <div className={classes.flexGrow} />
