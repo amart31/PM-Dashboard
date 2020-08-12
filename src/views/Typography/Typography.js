@@ -41,6 +41,7 @@ const rows = [
   createData('Task14', 'John Smith', '08/15/2020', 'Stuck', 'Project 1', 4),
 ];
 
+
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
     return -1;
@@ -90,7 +91,7 @@ function EnhancedTableHead(props) {
             indeterminate={numSelected > 0 && numSelected < rowCount}
             checked={rowCount > 0 && numSelected === rowCount}
             onChange={onSelectAllClick}
-            inputProps={{ 'aria-label': 'select all desserts' }}
+            inputProps={{ 'aria-label': 'select all tasks' }}
           />
         </TableCell>
         {headCells.map((headCell) => (

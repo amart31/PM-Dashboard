@@ -20,16 +20,12 @@ import Typography from './views/Typography/Typography';
 const Routes = () => {
   return (
     <Switch>
-    <Redirect
-        exact
-        from="/"
-        to="/dashboard"
-      />
+    
       <RouteWithLayout
         component={DashboardView}
         exact
         layout={MainLayout}
-        path="/dashboard"
+        path="/"
       />
       <RouteWithLayout
         component={UserListView}
@@ -85,7 +81,7 @@ const Routes = () => {
         layout={MinimalLayout}
         path="/not-found"
       />
-      <Redirect to="/not-found" />
+      <Redirect to="/" />
     </Switch>
   );
 };

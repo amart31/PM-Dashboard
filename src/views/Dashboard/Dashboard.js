@@ -10,7 +10,8 @@ import {
   LatestSales,
   UsersByDevice,
   LatestProducts,
-  LatestOrders
+  LatestOrders,
+  DailyTasks
 } from './components';
 
 const useStyles = makeStyles(theme => ({
@@ -99,6 +100,16 @@ const Dashboard = () => {
           xs={12}
         >
           <LatestOrders />
+        </Grid>
+
+        <Grid
+          item
+          lg={8}
+          md={12}
+          xl={9}
+          xs={12}
+        >
+          <DailyTasks />
         </Grid>
       </Grid>
     </div>
