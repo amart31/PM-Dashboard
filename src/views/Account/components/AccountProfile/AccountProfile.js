@@ -44,7 +44,7 @@ const AccountProfile = props => {
     city: 'Los Angeles',
     country: 'USA',
     timezone: 'GTM-7',
-    avatar: '/images/avatars/avatar_11.png'
+    avatar: 'https://github.com/amart31/PM-Dashboard/blob/master/public/images/avatars/avatar_11.png?raw=true'
   };
 
   return (
@@ -59,7 +59,7 @@ const AccountProfile = props => {
               gutterBottom
               variant="h2"
             >
-              John Doe
+              She Zhi
             </Typography>
             <Typography
               className={classes.locationText}
@@ -78,7 +78,7 @@ const AccountProfile = props => {
           </div>
           <Avatar
             className={classes.avatar}
-            src={user.avatar}
+            src='https://github.com/amart31/PM-Dashboard/blob/master/public/images/avatars/avatar_11.png?raw=true'
           />
         </div>
         <div className={classes.progress}>

@@ -41,7 +41,7 @@ const Profile = props => {
         alt="Person"
         className={classes.avatar}
         component={RouterLink}
-        src="https://github.com/amart31/PM-Dashboard/blob/master/public/images/avatars/avatar_2.png?raw=true"
+        src="https://github.com/amart31/PM-Dashboard/blob/master/public/images/avatars/avatar_11.png?raw=true"
         to="/settings"
       />
       <Typography

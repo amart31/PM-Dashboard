@@ -31,5 +31,11 @@ export default [
     name: 'GitHub',
     imageUrl: 'https://github.com/amart31/PM-Dashboard/blob/master/public/images/products/product_5.png?raw=true',
     updatedAt: moment().subtract(9, 'hours')
+  },
+  {
+    id: uuid(),
+    name: 'SquareSpace',
+    imageUrl: 'https://github.com/amart31/PM-Dashboard/blob/master/public/images/products/product_6.png?raw=true',
+    updatedAt: moment().subtract(10, 'hours')
   }
 ];
