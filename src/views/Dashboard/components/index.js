@@ -7,3 +7,5 @@ export { default as TotalProfit } from './TotalProfit';
 export { default as TotalUsers } from './TotalUsers';
 export { default as UsersByDevice } from './UsersByDevice';
 export { default as DailyTasks } from './DailyTasks';
+export { default as TableauBoard } from './TableauBoard';
+export { default as PMBoard } from './PMBoard';
