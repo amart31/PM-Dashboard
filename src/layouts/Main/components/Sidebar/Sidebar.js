@@ -9,6 +9,7 @@ import DashboardIcon from '@material-ui/icons/Dashboard';
 import PeopleIcon from '@material-ui/icons/People';
 import WebIcon from '@material-ui/icons/Web';
 import AssignmentIcon from '@material-ui/icons/Assignment';
+import InsertDriveFileIcon from '@material-ui/icons/InsertDriveFile';
 import AppsIcon from '@material-ui/icons/Apps';
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
 import SettingsIcon from '@material-ui/icons/Settings';
@@ -69,6 +70,10 @@ const Sidebar = props => {
       title: 'Tasks',
       href: '/typography',
       icon: <AssignmentIcon />
+    },{
+      title: 'Contracts',
+      href:'/InsertDriveFileIcon',
+      icon: <InsertDriveFileIcon />
     },
     {
       title: 'Integrations',
