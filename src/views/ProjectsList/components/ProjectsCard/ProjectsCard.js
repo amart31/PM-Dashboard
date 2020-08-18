@@ -39,7 +39,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const ProductCard = props => {
+const ProjectsCard = props => {
   const { className, product, ...rest } = props;
 
   const classes = useStyles();
@@ -107,9 +107,9 @@ const ProductCard = props => {
   );
 };
 
-ProductCard.propTypes = {
+ProjectsCard.propTypes = {
   className: PropTypes.string,
   product: PropTypes.object.isRequired
 };
 
-export default ProductCard;
+export default ProjectsCard;

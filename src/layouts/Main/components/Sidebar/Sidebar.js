@@ -57,7 +57,7 @@ const Sidebar = props => {
     },
     {
       title: 'Projects',
-      href: '/products',
+      href: '/projects',
       icon: <WebIcon />
     },
     {
@@ -67,12 +67,12 @@ const Sidebar = props => {
     },
     {
       title: 'Tasks',
-      href: '/typography',
+      href: '/tasks',
       icon: <AssignmentIcon />
     },
     {
       title: 'Integrations',
-      href: '/icons',
+      href: '/integrations',
       icon: <AppsIcon />
     },
     {

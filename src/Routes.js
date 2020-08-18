@@ -8,7 +8,7 @@ import {
   Dashboard as DashboardView,
   ProductList as ProductListView,
   UserList as UserListView,
-  Icons as IconsView,
+  Tasks as TasksView,
   Account as AccountView,
   Settings as SettingsView,
   SignUp as SignUpView,
@@ -16,7 +16,7 @@ import {
   NotFound as NotFoundView
 } from './views';
 
-import Typography from './views/Typography/Typography';
+import Integrations from './views/Integrations/Integrations';
 const Routes = () => {
   return (
     <Switch>
@@ -37,19 +37,19 @@ const Routes = () => {
         component={ProductListView}
         exact
         layout={MainLayout}
-        path="/products"
+        path="/projects"
       />
       <RouteWithLayout
-        component={Typography}
+        component={Integrations}
         exact
         layout={MainLayout}
-        path="/typography"
+        path="/integrations"
       />
       <RouteWithLayout
-        component={IconsView}
+        component={TasksView}
         exact
         layout={MainLayout}
-        path="/icons"
+        path="/tasks"
       />
       <RouteWithLayout
         component={AccountView}
