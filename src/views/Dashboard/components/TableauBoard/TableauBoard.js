@@ -2,7 +2,6 @@ import React, {useRef, useState, useEffect} from 'react';
 
 const { tableau } = window;
 
-
 function TableauBoard() {
 
     const ref = useRef(null);
