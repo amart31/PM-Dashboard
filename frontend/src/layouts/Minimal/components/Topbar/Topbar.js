@@ -27,7 +27,7 @@ const Topbar = props => {
         <RouterLink to="/">
           <img
             alt="Logo"
-            src="https://github.com/amart31/PM-Dashboard/blob/master/public/images/logos/logo--white.svg?raw=true"
+            src="https://github.com/amart31/PM-Dashboard/blob/master/frontend/public/images/logos/logo--white.svg?raw=true"
           />
         </RouterLink>
       </Toolbar>
