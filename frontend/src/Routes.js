@@ -9,6 +9,7 @@ import {
   ProductList as ProductListView,
   UserList as UserListView,
   Tasks as TasksView,
+  Tableau as TableauView,
   Account as AccountView,
   Settings as SettingsView,
   SignUp as SignUpView,
@@ -51,6 +52,14 @@ const Routes = () => {
         layout={MainLayout}
         path="/tasks"
       />
+
+      <RouteWithLayout
+        component={TableauView}
+        exact
+        layout={MainLayout}
+        path="/tableau"
+      />
+
       <RouteWithLayout
         component={AccountView}
         exact

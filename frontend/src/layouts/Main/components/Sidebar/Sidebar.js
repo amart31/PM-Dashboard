@@ -13,6 +13,7 @@ import AppsIcon from '@material-ui/icons/Apps';
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
 import SettingsIcon from '@material-ui/icons/Settings';
 import LockOpenIcon from '@material-ui/icons/LockOpen';
+import AssessmentIcon from '@material-ui/icons/Assessment';
 
 import { Profile, SidebarNav } from './components';
 
@@ -69,6 +70,11 @@ const Sidebar = props => {
       title: 'Tasks',
       href: '/tasks',
       icon: <AssignmentIcon />
+    },
+    {
+      title: 'Tableau',
+      href: '/tableau',
+      icon: <AssessmentIcon />
     },
     {
       title: 'Contracts',
