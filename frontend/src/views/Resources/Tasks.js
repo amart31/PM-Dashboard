@@ -10,6 +10,7 @@ import Box from '@material-ui/core/Box';
 
 import ResourceCard from './components/ResourceCard';
 import TasksTable from './components/TasksTable';
+import ResourceForm from './components/ResourceForm';
 import injectContext from '../../store/appContext';
 import { Context } from '../../store/appContext';
 
@@ -77,7 +78,7 @@ const Tasks =()  =>{
         <ResourceCard />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Item Three
+        <ResourceForm />
       </TabPanel>
     </div>
   );

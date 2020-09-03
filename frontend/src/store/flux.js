@@ -45,6 +45,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           
        
       },
+
       changeColor: (index, color) => {
         //get the store
         const store = getStore();
@@ -64,11 +65,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 
       createResource: (
         duration,
-        id,
         projectName,
         resourceName,
-        status,
-        updatedDate
+        status
       ) => {
         const store = getStore();
         const endpoint =
@@ -83,11 +82,9 @@ const getState = ({ getStore, getActions, setStore }) => {
           },
           body: JSON.stringify({
             duration: duration,
-            id: id,
             projectName: projectName,
             resourceName: resourceName,
             status: status,
-            updatedDate: updatedDate
           })
         })
           .then(function(response) {
