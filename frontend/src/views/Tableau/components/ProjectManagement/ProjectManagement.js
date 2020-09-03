@@ -5,23 +5,24 @@ const { tableau } = window;
 
 function ResourceManagement() {
 
-    const ref = useRef(null);
-    const url = "https://public.tableau.com/views/PMDashboard_15973367163060/ResourceManagement2?:language=en&:display_count=y&:origin=viz_share_link:showVizHome=no&:embed=true";
+  const ref = useRef(null);
+  
+  const url = 'https://prod-useast-a.online.tableau.com/t/kanniappasadasivanpraveenatbahcom/views/PMDashboardNew/ResourceManagement?:showAppBanner=false&:display_count=n&:showVizHome=n&:origin=viz_share_link';
 
-    function initViz() {
-        new tableau.Viz(ref.current, url)
-    }
+  function initViz() {
+    new tableau.Viz(ref.current, url)
+  }
 
-    useEffect(() => {
-        initViz();
-    },[])
-    return (
-        <div> 
-            <div ref={ref}>
+  useEffect(() => {
+    initViz();
+  },[])
+  return (
+    <div> 
+      <div ref={ref}>
         
-            </div>
-        </div>
-    );
+      </div>
+    </div>
+  );
 
 }
 

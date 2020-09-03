@@ -7,7 +7,6 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
-
 import ResourceCard from './components/ResourceCard';
 import TasksTable from './components/TasksTable';
 import ResourceForm from './components/ResourceForm';
@@ -49,6 +48,7 @@ function a11yProps(index) {
 
 const useStyles = makeStyles((theme) => ({
   root: {
+   
     flexGrow: 1,
     backgroundColor: theme.palette.background.paper,
   },
@@ -75,7 +75,14 @@ const Tasks =()  =>{
         <TasksTable />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <ResourceCard />
+        
+
+         
+            <ResourceCard />
+            
+   
+    
+      
       </TabPanel>
       <TabPanel value={value} index={2}>
         <ResourceForm />

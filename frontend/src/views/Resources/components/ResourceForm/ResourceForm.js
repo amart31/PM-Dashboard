@@ -3,6 +3,13 @@ import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
+import Select from '@material-ui/core/Select';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+
+import FormControl from '@material-ui/core/FormControl';
+
+
 import injectContext from '../../../../store/appContext';
 import { Context } from '../../../../store/appContext';
 import PropTypes from 'prop-types';
@@ -13,6 +20,13 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(1),
       width: '25ch',
     },
+  },
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 120,
+  },
+  selectEmpty: {
+    marginTop: theme.spacing(2),
   },
 }));
 
@@ -84,17 +98,21 @@ export default function ResourceForm() {
        
       </div>
       <div>
-        <TextField
-          id="status"
-          label="Status"
-          placeholder="Project Status"
-          multiline
-          rowsMax={4}
-          value={status}
-          onChange={handleStatus}
-         
-        />
-       
+        
+        <FormControl className={classes.formControl}>
+
+          <InputLabel id="statusLabel">Status</InputLabel>
+          <Select
+            labelId='statusLabel'
+            id="status"
+            value={status}
+            onChange={handleStatus}
+          >
+            <MenuItem value={'Working'}>Working</MenuItem>
+            <MenuItem value={'ToDo'}>ToDo</MenuItem>
+            <MenuItem value={'Done'}>Done</MenuItem>
+          </Select>
+        </FormControl>
     
       </div>
       <Button variant="contained" color="primary" onClick={() => {

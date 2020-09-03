@@ -6,29 +6,23 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
-
 import injectContext from '../../../../store/appContext';
 import { Context } from '../../../../store/appContext';
 import PropTypes from 'prop-types';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme =>({
   root: {
-      
     maxWidth: 300,
     minWidth: 275,
   },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
-  },
+  
   title: {
     fontSize: 14,
   },
   pos: {
     marginBottom: 12,
   },
-});
+}));
 
 const ResourceCard =() => {
   const classes = useStyles();
@@ -37,27 +31,31 @@ const ResourceCard =() => {
   const { store, actions } = useContext(Context);
   return (
     <div>
+      
       {store.projects.map((item, index) => {
         return (
          
-
+          
 
 
           <Card className={classes.root} key={index}>
             <CardContent>
               <Typography className={classes.title} color="textSecondary" gutterBottom>
-                {item.updatedDate}
+                {item.projectName}
               </Typography>
               <Typography variant="h5" component="h2">
                 {item.projectName}
               </Typography>
               <Typography className={classes.pos} color="textSecondary">
-                {item.id}
+               Project ID# {item.id}
               </Typography>
               <Typography variant="body2" component="p">
-                {item.projectName}
-                <br />
-                {item.duration} {item.projectName} {item.updatedDate}
+            
+                Status: {item.status}
+                <br/>
+                Duration: {item.duration}
+                <br/>
+                Last Updated: {item.updatedDate}
               </Typography>
             </CardContent>
             <CardActions>
@@ -65,11 +63,11 @@ const ResourceCard =() => {
             </CardActions>
           </Card>
                       
-                          
+                 
        
         );
       })}
-
+     
     </div>
     
   );
