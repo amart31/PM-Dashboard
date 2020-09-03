@@ -50,7 +50,7 @@ const Routes = () => {
         component={TasksView}
         exact
         layout={MainLayout}
-        path="/tasks"
+        path="/resources"
       />
 
       <RouteWithLayout

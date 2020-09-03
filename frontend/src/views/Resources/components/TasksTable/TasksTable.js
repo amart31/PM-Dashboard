@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 import PropTypes from 'prop-types';
 
-
 import AddBox from '@material-ui/icons/AddBox';
 import ArrowDownward from '@material-ui/icons/ArrowDownward';
 import Check from '@material-ui/icons/Check';
@@ -24,12 +23,11 @@ import ViewColumn from '@material-ui/icons/ViewColumn';
 import MaterialTable from 'material-table';
 
 
-import injectContext from '../../store/appContext';
+import injectContext from '../../../../store/appContext';
 
-import { Context } from '../../store/appContext';
+import { Context } from '../../../../store/appContext';
 
-
-const Tasks =()  =>{
+const TasksTable =()  =>{
 
  
 
@@ -88,89 +86,58 @@ const Tasks =()  =>{
 
   const { store, actions } = useContext(Context);
   return (
-    <React.Fragment>
-
-
-
-
-      <ul className="list-group">
-        {store.resources.map((item, index) => {
-          return (
-            <li
-              key={index}
-            >
-              <Link to="/">
-                <span>Link to: {item.duration} {item.projectName}</span>
-              </Link>
-						
-							
-            </li>
-          );
-        })}
-      </ul>
-
-     
+   
+    <MaterialTable
+      icons={tableIcons}
+      title="Resource Management"
+      columns={state.columns}
+      data={state.data}
+      editable={{
+        onRowAdd: (newData) =>
+          new Promise((resolve) => {
+            setTimeout(() => {
+              resolve();
+              setState((prevState) => {
+                const data = [...prevState.data];
+                data.push(newData);
+                return { ...prevState, data };
+              });
+            }, 600);
+          }),
+        onRowUpdate: (newData, oldData) =>
+          new Promise((resolve) => {
+            setTimeout(() => {
+              resolve();
+              if (oldData) {
+                setState((prevState) => {
+                  const data = [...prevState.data];
+                  data[data.indexOf(oldData)] = newData;
+                  return { ...prevState, data };
+                });
+              }
+            }, 600);
+          }),
+        onRowDelete: (oldData) =>
+          new Promise((resolve) => {
+            setTimeout(() => {
+              resolve();
+              setState((prevState) => {
+                const data = [...prevState.data];
+                data.splice(data.indexOf(oldData), 1);
+                return { ...prevState, data };
+              });
+            }, 600);
+          }),
+      }}
+    />
       
-
-
-       
-    
-
-      <div>
-        <MaterialTable
-          icons={tableIcons}
-          title="Resource Management"
-          columns={state.columns}
-          data={state.data}
-          editable={{
-            onRowAdd: (newData) =>
-              new Promise((resolve) => {
-                setTimeout(() => {
-                  resolve();
-                  setState((prevState) => {
-                    const data = [...prevState.data];
-                    data.push(newData);
-                    return { ...prevState, data };
-                  });
-                }, 600);
-              }),
-            onRowUpdate: (newData, oldData) =>
-              new Promise((resolve) => {
-                setTimeout(() => {
-                  resolve();
-                  if (oldData) {
-                    setState((prevState) => {
-                      const data = [...prevState.data];
-                      data[data.indexOf(oldData)] = newData;
-                      return { ...prevState, data };
-                    });
-                  }
-                }, 600);
-              }),
-            onRowDelete: (oldData) =>
-              new Promise((resolve) => {
-                setTimeout(() => {
-                  resolve();
-                  setState((prevState) => {
-                    const data = [...prevState.data];
-                    data.splice(data.indexOf(oldData), 1);
-                    return { ...prevState, data };
-                  });
-                }, 600);
-              }),
-          }}
-        />
-      </div>
-
-
-    </React.Fragment>
   );
 }
 
 
 
-Tasks.contextTypes = {
-  itens: PropTypes.array
+TasksTable.contextTypes = {
+  items: PropTypes.array
 }
 
-export default injectContext(Tasks);
+export default injectContext(TasksTable);

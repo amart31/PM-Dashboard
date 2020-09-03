@@ -1,6 +1,7 @@
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
+      projects: [{}],
       resources: [
 				
         {	'duration': 10,
@@ -18,6 +19,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					fetch().then().then(data => setStore({ "foo": data.bar }))
         */
 
+       const store = getStore();
+
         fetch(
           'https://bah-pm-dashboard-backend.herokuapp.com/resources'
         )
@@ -29,8 +32,9 @@ const getState = ({ getStore, getActions, setStore }) => {
             response.json().then(data => {
               console.log(data);
               
-             
-              setStore({ 'resources.duration': data.duration });
+              
+              console.log(store);
+              setStore({ projects: data.projects });
             });
           })
           .catch(err => {

@@ -67,8 +67,8 @@ const Sidebar = props => {
       icon: <LockOpenIcon />
     },
     {
-      title: 'Tasks',
-      href: '/tasks',
+      title: 'Resources',
+      href: '/resources',
       icon: <AssignmentIcon />
     },
     {
