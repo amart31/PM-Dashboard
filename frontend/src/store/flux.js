@@ -1,0 +1,125 @@
+const getState = ({ getStore, getActions, setStore }) => {
+  return {
+    store: {
+      resources: [
+				
+        {	'duration': 10,
+          'projectName': 'white'}
+				
+      ]
+    },
+    actions: {
+      // Use getActions to call a function within a fuction
+      exampleFunction: () => {
+        getActions().changeColor(0, 'green');
+      },
+      loadSomeData: () => {
+        /**
+					fetch().then().then(data => setStore({ "foo": data.bar }))
+        */
+
+        fetch(
+          'https://bah-pm-dashboard-backend.herokuapp.com/resources'
+        )
+          .then(response => {
+            if (response.status !== 200) {
+              alert('Connection error, status ' + response.status);
+              return;
+            }
+            response.json().then(data => {
+              console.log(data);
+              
+             
+              setStore({ 'resources.duration': data.duration });
+            });
+          })
+          .catch(err => {
+            alert('Fetch error: ', err);
+          });
+
+        
+          
+       
+      },
+      changeColor: (index, color) => {
+        //get the store
+        const store = getStore();
+
+        //we have to loop the entire demo array to look for the respective index
+        //and change its color
+        const demo = store.demo.map((elm, i) => {
+          if (i === index) elm.background = color;
+          return elm;
+        });
+
+        //reset the global store
+        setStore({ demo: demo });
+      },
+      
+
+
+      createResource: (
+        duration,
+        id,
+        projectName,
+        resourceName,
+        status,
+        updatedDate
+      ) => {
+        const store = getStore();
+        const endpoint =
+					'https://bah-pm-dashboard-backend.herokuapp.com/resources';
+
+  
+        fetch(endpoint, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            accept: 'application/json'
+          },
+          body: JSON.stringify({
+            duration: duration,
+            id: id,
+            projectName: projectName,
+            resourceName: resourceName,
+            status: status,
+            updatedDate: updatedDate
+          })
+        })
+          .then(function(response) {
+            return response.json();
+          })
+          .then(res => {
+            fetch(
+              'https://bah-pm-dashboard-backend.herokuapp.com/resources'
+            )
+              .then(response => {
+                if (response.status !== 200) {
+                  alert(
+                    'Connection error, status ' +
+											response.status
+                  );
+                  return;
+                }
+                response.json().then(data => {
+                  const store = getStore();
+                  store.products = data;
+                  setStore({ store });
+                });
+              })
+              .catch(err => {
+                alert('Fetch error: ', err);
+              });
+          })
+
+          .catch(err => {
+            alert('Fetch error: ', err);
+          });
+      }
+
+
+    }
+  };
+};
+
+export default getState;

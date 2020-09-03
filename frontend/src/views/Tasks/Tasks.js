@@ -1,4 +1,9 @@
-import React, {forwardRef, useState, useEffect} from 'react';
+import React, {forwardRef, useState, useEffect, useContext } from 'react';
+
+import { Link } from "react-router-dom";
+
+import PropTypes from 'prop-types';
+
 
 import AddBox from '@material-ui/icons/AddBox';
 import ArrowDownward from '@material-ui/icons/ArrowDownward';
@@ -19,7 +24,14 @@ import ViewColumn from '@material-ui/icons/ViewColumn';
 import MaterialTable from 'material-table';
 
 
-export default function Tasks() {
+import injectContext from '../../store/appContext';
+
+import { Context } from '../../store/appContext';
+
+
+const Tasks =()  =>{
+
+ 
 
   const tableIcons = {
     Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -40,10 +52,6 @@ export default function Tasks() {
     ThirdStateCheck: forwardRef((props, ref) => <Remove {...props} ref={ref} />),
     ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />)
   };
-
-  const [error, setError] = useState(null);
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [items, setItems] = useState({});
 
   const [state, setState] = React.useState({
 
@@ -76,88 +84,93 @@ export default function Tasks() {
   
   });
 
-  useEffect(() => {
-    fetch('https://cat-fact.herokuapp.com/facts')
-      .then(res => res.json())
-      .then(
-        result => {
-          setIsLoaded(true);
-          setItems(result);
-          console.log(result);
-          console.log(items);
-          
-        },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
-        (error) => {
-          setIsLoaded(true);
-          setError(error);
-        }
-      )
-  }, [])
+  
+
+  const { store, actions } = useContext(Context);
+  return (
+    <React.Fragment>
 
 
-  if (error) {
-    return <div>Error: {error.message}</div>;
-  } else if (!isLoaded) {
-    return <div>Loading...</div>;
-  } else {
-    return (
-      <React.Fragment>
+
+
+      <ul className="list-group">
+        {store.resources.map((item, index) => {
+          return (
+            <li
+              key={index}
+            >
+              <Link to="/">
+                <span>Link to: {item.duration} {item.projectName}</span>
+              </Link>
+						
+							
+            </li>
+          );
+        })}
+      </ul>
+
      
+      
 
 
-        <div>
-          <MaterialTable
-            icons={tableIcons}
-            title="Resource Management"
-            columns={state.columns}
-            data={state.data}
-            editable={{
-              onRowAdd: (newData) =>
-                new Promise((resolve) => {
-                  setTimeout(() => {
-                    resolve();
+       
+    
+
+      <div>
+        <MaterialTable
+          icons={tableIcons}
+          title="Resource Management"
+          columns={state.columns}
+          data={state.data}
+          editable={{
+            onRowAdd: (newData) =>
+              new Promise((resolve) => {
+                setTimeout(() => {
+                  resolve();
+                  setState((prevState) => {
+                    const data = [...prevState.data];
+                    data.push(newData);
+                    return { ...prevState, data };
+                  });
+                }, 600);
+              }),
+            onRowUpdate: (newData, oldData) =>
+              new Promise((resolve) => {
+                setTimeout(() => {
+                  resolve();
+                  if (oldData) {
                     setState((prevState) => {
                       const data = [...prevState.data];
-                      data.push(newData);
+                      data[data.indexOf(oldData)] = newData;
                       return { ...prevState, data };
                     });
-                  }, 600);
-                }),
-              onRowUpdate: (newData, oldData) =>
-                new Promise((resolve) => {
-                  setTimeout(() => {
-                    resolve();
-                    if (oldData) {
-                      setState((prevState) => {
-                        const data = [...prevState.data];
-                        data[data.indexOf(oldData)] = newData;
-                        return { ...prevState, data };
-                      });
-                    }
-                  }, 600);
-                }),
-              onRowDelete: (oldData) =>
-                new Promise((resolve) => {
-                  setTimeout(() => {
-                    resolve();
-                    setState((prevState) => {
-                      const data = [...prevState.data];
-                      data.splice(data.indexOf(oldData), 1);
-                      return { ...prevState, data };
-                    });
-                  }, 600);
-                }),
-            }}
-          />
-        </div>
+                  }
+                }, 600);
+              }),
+            onRowDelete: (oldData) =>
+              new Promise((resolve) => {
+                setTimeout(() => {
+                  resolve();
+                  setState((prevState) => {
+                    const data = [...prevState.data];
+                    data.splice(data.indexOf(oldData), 1);
+                    return { ...prevState, data };
+                  });
+                }, 600);
+              }),
+          }}
+        />
+      </div>
 
 
-      </React.Fragment>
-    );
-  }
+    </React.Fragment>
+  );
 }
 
 
+
+Tasks.contextTypes = {
+  itens: PropTypes.array
+}
+
+export default injectContext(Tasks);
