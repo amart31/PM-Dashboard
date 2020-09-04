@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
 import { Doughnut } from 'react-chartjs-2';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
@@ -15,6 +15,9 @@ import WorkIcon from '@material-ui/icons/Work';
 import WorkOutlineIcon from '@material-ui/icons/WorkOutline';
 import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn';
 import RefreshIcon from '@material-ui/icons/Refresh';
+
+import injectContext from '../../../../store/appContext';
+import { Context } from '../../../../store/appContext';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -58,7 +61,7 @@ const UsersByDevice = props => {
         hoverBorderColor: theme.palette.white
       }
     ],
-    labels: ['Pending', 'In-Progress', 'Done']
+    labels: ['Working', 'ToDo', 'Done']
   };
 
   const options = {
@@ -85,13 +88,13 @@ const UsersByDevice = props => {
 
   const devices = [
     {
-      title: 'In-Progress',
+      title: 'Working',
       value: '63',
       icon: <WorkIcon />,
       color: theme.palette.primary.main
     },
     {
-      title: 'Pending',
+      title: 'ToDo',
       value: '15',
       icon: <WorkOutlineIcon />,
       color: theme.palette.error.main

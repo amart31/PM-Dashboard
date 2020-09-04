@@ -7,7 +7,7 @@ function ResourceManagement() {
 
   const ref = useRef(null);
   
-  const url = 'https://prod-useast-a.online.tableau.com/t/kanniappasadasivanpraveenatbahcom/views/PMDashboardNew/ResourceManagement?:showAppBanner=false&:display_count=n&:showVizHome=n&:origin=viz_share_link';
+  const url = 'https://prod-useast-a.online.tableau.com/t/kanniappasadasivanpraveenatbahcom/views/PMDashboard/ResourceManagement?:origin=card_share_link&:embed=n';
 
   function initViz() {
     new tableau.Viz(ref.current, url)
