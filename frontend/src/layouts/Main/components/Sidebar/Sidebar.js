@@ -72,8 +72,8 @@ const Sidebar = props => {
       icon: <AssignmentIcon />
     },
     {
-      title: 'Tableau',
-      href: '/tableau',
+      title: 'Budget',
+      href: '/budget',
       icon: <AssessmentIcon />
     },
     {

@@ -57,7 +57,7 @@ const Routes = () => {
         component={TableauView}
         exact
         layout={MainLayout}
-        path="/tableau"
+        path="/budget"
       />
 
       <RouteWithLayout

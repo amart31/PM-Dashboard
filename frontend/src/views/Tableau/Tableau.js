@@ -4,8 +4,7 @@ import { makeStyles } from '@material-ui/styles';
 import { Grid } from '@material-ui/core';
 
 import {
-  ResourceManagement,
-  ProjectManagement,
+  ResourceManagement
   
 } from './components';
 
@@ -36,15 +35,7 @@ const Tableau = () => {
           <ResourceManagement />
         </Grid>
         
-        <Grid
-          item
-          lg={12}
-          md={12}
-          xl={12}
-          xs={12}
-        >
-          <ProjectManagement />
-        </Grid>
+        
 
 
       </Grid>
