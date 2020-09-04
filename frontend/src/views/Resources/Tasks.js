@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
 import ResourceCard from './components/ResourceCard';
-import PMBoard from '../Dashboard/components/PMBoard';
+import TableauBoard from '../Dashboard/components/TableauBoard';
 import ResourceForm from './components/ResourceForm';
 import ResourceTable from './components/ResourceTable';
 import injectContext from '../../store/appContext';
@@ -86,7 +86,7 @@ const Tasks =()  =>{
       
       </TabPanel>
       <TabPanel value={value} index={2}>
-       <PMBoard />
+       <TableauBoard />
       </TabPanel>
       
     </div>
