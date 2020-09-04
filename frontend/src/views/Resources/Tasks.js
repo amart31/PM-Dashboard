@@ -69,7 +69,7 @@ const Tasks =()  =>{
         <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
           <Tab label="Resources List" {...a11yProps(0)} />
           <Tab label="Add Resources" {...a11yProps(1)} />
-          <Tab label="Resource Management" {...a11yProps(2)} />
+          <Tab label="Tableau" {...a11yProps(2)} />
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
