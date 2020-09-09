@@ -16,8 +16,8 @@ import WorkOutlineIcon from '@material-ui/icons/WorkOutline';
 import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn';
 import RefreshIcon from '@material-ui/icons/Refresh';
 
-import injectContext from '../../../../store/appContext';
-import { Context } from '../../../../store/appContext';
+import injectContext from '../../../../../store/appContext';
+import { Context } from '../../../../../store/appContext';
 
 const useStyles = makeStyles(theme => ({
   root: {

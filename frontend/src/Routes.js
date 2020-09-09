@@ -9,7 +9,10 @@ import {
   Tasks as TasksView,
   Tableau as TableauView,
   NotFound as NotFoundView,
-  Capabilities as CapabilitiesView
+  Capabilities as CapabilitiesView,
+  Deliveries as DeliveriesView,
+  Risks as RisksView,
+  Criteria as CriteriaView
 
 } from './views';
 
@@ -29,6 +32,12 @@ const Routes = () => {
         path="/capabilities"
       />
       <RouteWithLayout
+        component={DeliveriesView}
+        exact
+        layout={MainLayout}
+        path="/deliveries"
+      />
+      <RouteWithLayout
         component={TasksView}
         exact
         layout={MainLayout}
@@ -39,6 +48,18 @@ const Routes = () => {
         exact
         layout={MainLayout}
         path="/budget"
+      />
+      <RouteWithLayout
+        component={RisksView}
+        exact
+        layout={MainLayout}
+        path="/risks"
+      />
+      <RouteWithLayout
+        component={CriteriaView}
+        exact
+        layout={MainLayout}
+        path="/criteria"
       />
       <RouteWithLayout
         component={NotFoundView}

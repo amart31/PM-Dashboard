@@ -3,7 +3,6 @@ import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/styles';
 import { Card, CardContent, Grid, Typography, Avatar } from '@material-ui/core';
-import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import MoneyIcon from '@material-ui/icons/Money';
 
@@ -19,7 +18,7 @@ const useStyles = makeStyles(theme => ({
     fontWeight: 700
   },
   avatar: {
-    backgroundColor: theme.palette.error.main,
+    backgroundColor: theme.palette.primary.main,
     height: 56,
     width: 56
   },
@@ -29,14 +28,15 @@ const useStyles = makeStyles(theme => ({
   },
   difference: {
     marginTop: theme.spacing(2),
+    color: 'success',
     display: 'flex',
     alignItems: 'center'
   },
   differenceIcon: {
-    color: theme.palette.error.dark
+    color: theme.palette.primary.main
   },
   differenceValue: {
-    color: theme.palette.error.dark,
+    color: theme.palette.primary.main,
     marginRight: theme.spacing(1)
   }
 }));
@@ -65,7 +65,6 @@ const ProjectManagement = props => {
             >
               PROJECT MANAGEMENT
             </Typography>
-            <ArrowForwardIcon className={classes.differenceIcon} />
           </Grid>
           <Grid item>
             <Avatar className={classes.avatar}>
@@ -73,6 +72,9 @@ const ProjectManagement = props => {
             </Avatar>
           </Grid>
         </Grid>
+        <div className={classes.difference}>
+          <ArrowForwardIcon className={classes.differenceIcon} />
+        </div>
       </CardContent>
     </Card>
   );

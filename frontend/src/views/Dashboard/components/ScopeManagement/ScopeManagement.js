@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
     fontWeight: 700
   },
   avatar: {
-    backgroundColor: theme.palette.success.main,
+    backgroundColor: theme.palette.error.main,
     height: 56,
     width: 56
   },
@@ -32,10 +32,10 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'center'
   },
   differenceIcon: {
-    color: theme.palette.success.dark
+    color: theme.palette.error.main
   },
   differenceValue: {
-    color: theme.palette.success.dark,
+    color: theme.palette.error.main,
     marginRight: theme.spacing(1)
   }
 }));
@@ -64,7 +64,6 @@ const ScopeManagement = props => {
             >
               SCOPE MANAGEMENT
             </Typography>
-            <ArrowDownwardIcon className={classes.differenceIcon} />
           </Grid>
           <Grid item>
             <Avatar className={classes.avatar}>
@@ -72,6 +71,10 @@ const ScopeManagement = props => {
             </Avatar>
           </Grid>
         </Grid>
+        <div className={classes.difference}>
+          <ArrowDownwardIcon className={classes.differenceIcon} />
+          
+        </div>
       </CardContent>
     </Card>
   );

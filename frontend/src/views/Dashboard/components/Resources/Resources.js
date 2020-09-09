@@ -3,7 +3,6 @@ import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/styles';
 import { Card, CardContent, Grid, Typography, Avatar } from '@material-ui/core';
-import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 
@@ -12,8 +11,6 @@ import AccessTimeIcon from '@material-ui/icons/AccessTime';
 const useStyles = makeStyles(theme => ({
   root: {
     height: '100%',
-    backgroundColor: theme.palette.primary.main,
-    color: theme.palette.primary.contrastText
   },
   content: {
     alignItems: 'center',
@@ -23,8 +20,7 @@ const useStyles = makeStyles(theme => ({
     fontWeight: 700
   },
   avatar: {
-    backgroundColor: theme.palette.white,
-    color: theme.palette.primary.main,
+    backgroundColor: theme.palette.success.main,
     height: 56,
     width: 56
   },
@@ -38,10 +34,10 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'center'
   },
   differenceIcon: {
-    color: theme.palette.error.dark
+    color: theme.palette.success.main
   },
   differenceValue: {
-    color: theme.palette.error.dark,
+    color: theme.palette.success.main,
     marginRight: theme.spacing(1)
   }
 }));
@@ -70,7 +66,7 @@ const Resources = props => {
             >
               RESOURCES
             </Typography>
-            <ArrowUpwardIcon className={classes.differenceIcon} />
+           
           </Grid>
           <Grid item>
             <Avatar className={classes.avatar}>
@@ -78,6 +74,10 @@ const Resources = props => {
             </Avatar>
           </Grid>
         </Grid>
+        <div className={classes.difference}>
+          
+          <ArrowUpwardIcon className={classes.differenceIcon} />
+        </div>
       </CardContent>
     </Card>
   );

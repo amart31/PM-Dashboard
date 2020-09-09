@@ -8,10 +8,9 @@ import {
   CardContent,
   Grid,
   Typography,
-  Avatar,
-  LinearProgress
+  Avatar
 } from '@material-ui/core';
-import InsertChartIcon from '@material-ui/icons/InsertChartOutlined';
+import ImportantDevicesIcon from '@material-ui/icons/ImportantDevices';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -30,21 +29,23 @@ const useStyles = makeStyles(theme => ({
     height: 56,
     width: 56
   },
+  icon: {
+    height: 32,
+    width: 32
+  },
   difference: {
     marginTop: theme.spacing(2),
     display: 'flex',
     alignItems: 'center'
   },
   differenceIcon: {
-    color: theme.palette.error.dark
+    color: theme.palette.primary.main
   },
-  icon: {
-    height: 32,
-    width: 32
+  
+  differenceValue: {
+    color: theme.palette.error.main,
+    marginRight: theme.spacing(1)
   },
-  progress: {
-    marginTop: theme.spacing(3)
-  }
 }));
 
 const Technical = props => {
@@ -74,7 +75,7 @@ const Technical = props => {
           </Grid>
           <Grid item>
             <Avatar className={classes.avatar}>
-              <InsertChartIcon className={classes.icon} />
+              <ImportantDevicesIcon className={classes.icon} />
             </Avatar>
           </Grid>
         </Grid>

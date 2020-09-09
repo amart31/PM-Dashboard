@@ -7,10 +7,8 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
-import ResourceCard from './components/ResourceCard';
-import TableauBoard from '../Dashboard/components/TableauBoard';
-import ResourceForm from './components/ResourceForm';
-import ResourceTable from './components/ResourceTable';
+import FinancialsForm from './components/FinancialsForm';
+import FinancialsTable from './components/FinancialsTable';
 import injectContext from '../../store/appContext';
 import { Context } from '../../store/appContext';
 
@@ -67,26 +65,22 @@ const Tasks =()  =>{
     <div className={classes.root}>
       <AppBar position="static">
         <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
-          <Tab label="Resources List" {...a11yProps(0)} />
-          <Tab label="Add Resources" {...a11yProps(1)} />
-          <Tab label="Tableau" {...a11yProps(2)} />
+          <Tab label="Financials List" {...a11yProps(0)} />
+          <Tab label="Add Financial resource" {...a11yProps(1)} />
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-      <ResourceTable />
+      <FinancialsTable />
       </TabPanel>
       <TabPanel value={value} index={1}>
         
 
-      <ResourceForm />
+      <FinancialsForm />
             
             
    
     
       
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-       <TableauBoard />
       </TabPanel>
       
     </div>

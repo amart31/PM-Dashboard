@@ -49,11 +49,11 @@ const ResourceTable =(props) =>{
   const { className, ...rest } = props;
 
   const { store } = useContext(Context);
-  const rows = store.projects;
+  const data = store.projects;
 
   return (
     <TableContainer component={Paper} {...rest}
-    className={clsx(classes.root, className)}>
+      className={clsx(classes.root, className)}>
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
@@ -66,7 +66,7 @@ const ResourceTable =(props) =>{
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
+          {data.map((row) => (
             <TableRow hover key={row.id}>
               <TableCell component="th" scope="row">
                 {row.projectName}
@@ -74,7 +74,7 @@ const ResourceTable =(props) =>{
               <TableCell >{row.resourceName}</TableCell>
               <TableCell >{row.id}</TableCell>
               <TableCell >
-              <div className={classes.statusContainer}>
+                <div className={classes.statusContainer}>
               
               <StatusBullet
                 className={classes.status}
@@ -85,7 +85,7 @@ const ResourceTable =(props) =>{
               
               </TableCell>
               <TableCell >{row.duration} days</TableCell>
-              <TableCell >{moment(row.updatedDate).format('DD/MM/YYYY')}</TableCell>
+              <TableCell >{moment(row.updatedDate).format('MM/DD/YYYY')}</TableCell>
             </TableRow>
           ))}
         </TableBody>
