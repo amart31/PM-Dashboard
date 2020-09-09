@@ -27,9 +27,9 @@ const Profile = props => {
   const classes = useStyles();
 
   const user = {
-    name: 'Shen Zhi',
-    avatar: '/images/avatars/avatar_11.png',
-    bio: 'Project Manager'
+    name: 'IRS ECM SIS',
+    avatar: '/images/logos/bah.png',
+    bio: 'Operations Manual'
   };
 
   return (
@@ -41,7 +41,7 @@ const Profile = props => {
         alt="Person"
         className={classes.avatar}
         component={RouterLink}
-        src="https://raw.githubusercontent.com/amart31/PM-Dashboard/master/frontend/public/images/avatars/avatar_11.png?raw=true"
+        src="https://raw.githubusercontent.com/amart31/PM-Dashboard/master/frontend/public/images/logos/bah.png?raw=true"
         to="/settings"
       />
       <Typography

@@ -4,9 +4,14 @@ import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/styles';
 import { AppBar, Toolbar, Badge, Hidden, IconButton } from '@material-ui/core';
+
 import MenuIcon from '@material-ui/icons/Menu';
-import NotificationsIcon from '@material-ui/icons/NotificationsOutlined';
+import AssignmentIcon from '@material-ui/icons/Assignment';
 import InputIcon from '@material-ui/icons/Input';
+import Typography from '@material-ui/core/Typography';
+
+import Tooltip from '@material-ui/core/Tooltip';
+import { isNonNullExpression } from 'typescript';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -15,8 +20,11 @@ const useStyles = makeStyles(theme => ({
   flexGrow: {
     flexGrow: 1
   },
-  signOutButton: {
-    marginLeft: theme.spacing(1)
+  link: {textDecoration: 'none',
+    color: 'white'}
+  ,
+  toolbarLink: {
+    margin: theme.spacing(1)
   }
 }));
 
@@ -43,21 +51,16 @@ const Topbar = props => {
         </RouterLink>
         <div className={classes.flexGrow} />
         <Hidden mdDown>
-          <IconButton color="inherit">
-            <Badge
-              badgeContent={notifications.length}
-              color="primary"
-              variant="dot"
-            >
-              <NotificationsIcon />
-            </Badge>
-          </IconButton>
-          <IconButton
-            className={classes.signOutButton}
-            color="inherit"
-          >
-            <InputIcon />
-          </IconButton>
+          <RouterLink to="/capabilities" className={classes.link}>
+            <Typography className={classes.toolbarLink} color="inherit" variant="button" display="block" gutterBottom>
+        Capabilitites
+            </Typography>
+          </RouterLink>
+          <RouterLink to="/resources" className={classes.link}>
+            <Typography className={classes.toolbarLink} color="inherit" variant="button" display="block" gutterBottom>
+        Financials
+            </Typography>
+          </RouterLink>
         </Hidden>
         <Hidden lgUp>
           <IconButton
