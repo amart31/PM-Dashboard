@@ -6,22 +6,16 @@ import { Main as MainLayout, Minimal as MinimalLayout } from './layouts';
 
 import {
   Dashboard as DashboardView,
-  ProductList as ProductListView,
-  UserList as UserListView,
   Tasks as TasksView,
   Tableau as TableauView,
-  Account as AccountView,
-  Settings as SettingsView,
-  SignUp as SignUpView,
-  SignIn as SignInView,
-  NotFound as NotFoundView
+  NotFound as NotFoundView,
+  Capabilities as CapabilitiesView
+
 } from './views';
 
-import Integrations from './views/Capabilities/Capabilities';
 const Routes = () => {
   return (
     <Switch>
-    
       <RouteWithLayout
         component={DashboardView}
         exact
@@ -29,19 +23,7 @@ const Routes = () => {
         path="/"
       />
       <RouteWithLayout
-        component={UserListView}
-        exact
-        layout={MainLayout}
-        path="/users"
-      />
-      <RouteWithLayout
-        component={ProductListView}
-        exact
-        layout={MainLayout}
-        path="/projects"
-      />
-      <RouteWithLayout
-        component={Integrations}
+        component={CapabilitiesView}
         exact
         layout={MainLayout}
         path="/capabilities"
@@ -50,39 +32,13 @@ const Routes = () => {
         component={TasksView}
         exact
         layout={MainLayout}
-        path="/resources"
+        path="/financials"
       />
-
       <RouteWithLayout
         component={TableauView}
         exact
         layout={MainLayout}
         path="/budget"
-      />
-
-      <RouteWithLayout
-        component={AccountView}
-        exact
-        layout={MainLayout}
-        path="/account"
-      />
-      <RouteWithLayout
-        component={SettingsView}
-        exact
-        layout={MainLayout}
-        path="/settings"
-      />
-      <RouteWithLayout
-        component={SignUpView}
-        exact
-        layout={MinimalLayout}
-        path="/sign-up"
-      />
-      <RouteWithLayout
-        component={SignInView}
-        exact
-        layout={MinimalLayout}
-        path="/sign-in"
       />
       <RouteWithLayout
         component={NotFoundView}

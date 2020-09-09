@@ -1,19 +1,13 @@
 import React from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-
 import { makeStyles } from '@material-ui/styles';
 import { Divider, Drawer } from '@material-ui/core';
-
 import DashboardIcon from '@material-ui/icons/Dashboard';
-import PeopleIcon from '@material-ui/icons/People';
-import WebIcon from '@material-ui/icons/Web';
+import TimelapseIcon from '@material-ui/icons/Timelapse';
+import AccountBalanceWalletIcon from '@material-ui/icons/AccountBalanceWallet';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 import AppsIcon from '@material-ui/icons/Apps';
-import AccountBoxIcon from '@material-ui/icons/AccountBox';
-import SettingsIcon from '@material-ui/icons/Settings';
-import LockOpenIcon from '@material-ui/icons/LockOpen';
-import AssessmentIcon from '@material-ui/icons/Assessment';
 
 import { Profile, SidebarNav } from './components';
 
@@ -52,29 +46,24 @@ const Sidebar = props => {
       icon: <DashboardIcon />
     },
     {
-      title: 'Users',
-      href: '/users',
-      icon: <PeopleIcon />
+      title: 'Delivery Options',
+      href: '/deliveries',
+      icon: <TimelapseIcon />
     },
     {
-      title: 'Projects',
-      href: '/projects',
-      icon: <WebIcon />
-    },
-    {
-      title: 'Sign In',
-      href: '/sign-in',
-      icon: <LockOpenIcon />
-    },
-    {
-      title: 'Resources',
-      href: '/resources',
-      icon: <AssignmentIcon />
+      title: 'Risks',
+      href: '/risks',
+      icon: <DashboardIcon />
     },
     {
       title: 'Budget',
       href: '/budget',
-      icon: <AssessmentIcon />
+      icon: <AccountBalanceWalletIcon />
+    },
+    {
+      title: 'Criteria',
+      href: '/criteria',
+      icon: <DashboardIcon />
     },
     {
       title: 'Capabilities',
@@ -82,14 +71,9 @@ const Sidebar = props => {
       icon: <AppsIcon />
     },
     {
-      title: 'Account',
-      href: '/account',
-      icon: <AccountBoxIcon />
-    },
-    {
-      title: 'Settings',
-      href: '/settings',
-      icon: <SettingsIcon />
+      title: 'Financials',
+      href: '/financials',
+      icon: <AssignmentIcon />
     }
   ];
 

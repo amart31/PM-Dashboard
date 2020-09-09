@@ -27,10 +27,11 @@ const Tableau = () => {
 
         <Grid
           item
-          lg={12}
-          md={12}
-          xl={12}
-          xs={12}
+          justify="center"
+          lg={8}
+          md={8}
+          xl={8}
+          xs={8}
         >
           <ResourceManagement />
         </Grid>
