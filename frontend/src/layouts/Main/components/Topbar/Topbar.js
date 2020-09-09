@@ -56,7 +56,7 @@ const Topbar = props => {
         Capabilitites
             </Typography>
           </RouterLink>
-          <RouterLink to="/resources" className={classes.link}>
+          <RouterLink to="/financials" className={classes.link}>
             <Typography className={classes.toolbarLink} color="inherit" variant="button" display="block" gutterBottom>
         Financials
             </Typography>
