@@ -1,11 +1,16 @@
-export { default as Budget } from './Budget';
-export { default as LatestOrders } from './LatestOrders';
-export { default as LatestProducts } from './LatestProducts';
-export { default as LatestSales } from './LatestSales';
-export { default as TasksProgress } from './TasksProgress';
-export { default as TotalProfit } from './TotalProfit';
-export { default as TotalUsers } from './TotalUsers';
-export { default as UsersByDevice } from './UsersByDevice';
-export { default as DailyTasks } from './DailyTasks';
+export { default as ProjectManagement } from './ProjectManagement';
+export { default as LatestTasks } from './LatestTasks';
+export { default as Applications } from './Applications';
+export { default as TasksCompleted } from './TasksCompleted';
+export { default as Technical } from './Technical';
+export { default as Resources } from './Resources';
+export { default as ScopeManagement } from './ScopeManagement';
+export { default as TasksByStatus } from './TasksByStatus';
+export { default as PendingTasks } from './PendingTasks';
 export { default as TableauBoard } from './TableauBoard';
 export { default as PMBoard } from './PMBoard';
+
+
+export { default as ClientSatisfaction } from './ClientSatisfaction';
+export { default as Fiancial } from './Financial';
+export { default as SecurityITC } from './SecurityITC';

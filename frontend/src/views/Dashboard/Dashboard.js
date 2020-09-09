@@ -3,20 +3,24 @@ import { makeStyles } from '@material-ui/styles';
 import { Grid } from '@material-ui/core';
 
 import {
-  Budget,
-  TotalUsers,
-  TasksProgress,
-  TotalProfit,
-  LatestSales,
-  UsersByDevice,
-  LatestProducts,
-  LatestOrders,
-  DailyTasks,
+  ProjectManagement,
   TableauBoard,
-  PMBoard
+  TasksCompleted,
+  Technical,
+  ScopeManagement,
+  Resources,
+  Applications,
+  TasksByStatus,
+  LatestTasks,
+  PendingTasks,
+  
+  PMBoard,
+  ClientSatisfaction,
+  SecurityITC
 } from './components';
 
 import { Context } from '../../store/appContext';
+import Financial from './components/Financial';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -32,45 +36,67 @@ const Dashboard = () => {
 
       <Grid
         container
-        spacing={4}
+        spacing={2}
       >
         <Grid
           item
-          lg={3}
+          lg={2}
           sm={6}
-          xl={3}
-          xs={12}
+          xl={2}
+          xs={6}
         >
-          <Budget />
+          <ProjectManagement />
         </Grid>
         
         <Grid
           item
-          lg={3}
+          lg={2}
           sm={6}
-          xl={3}
-          xs={12}
+          xl={2}
+          xs={6}
         >
-          <TotalUsers />
+          <ScopeManagement />
         </Grid>
         <Grid
           item
-          lg={3}
+          lg={2}
           sm={6}
-          xl={3}
-          xs={12}
+          xl={2}
+          xs={6}
         >
-          <TasksProgress />
+          <Technical />
         </Grid>
         <Grid
           item
-          lg={3}
+          lg={2}
           sm={6}
-          xl={3}
-          xs={12}
+          xl={2}
+          xs={6}
         >
-          <TotalProfit />
+          <Resources />
         </Grid>
+
+        <Grid
+          item
+          lg={2}
+          sm={6}
+          xl={2}
+          xs={6}
+        >
+          <ClientSatisfaction />
+        </Grid>
+
+        <Grid
+          item
+          lg={2}
+          sm={6}
+          xl={2}
+          xs={6}
+        >
+          <SecurityITC />
+        </Grid>
+
+    
 
         <Grid
           item
@@ -89,7 +115,7 @@ const Dashboard = () => {
           xl={3}
           xs={12}
         >
-          <UsersByDevice />
+          <TasksByStatus />
         </Grid>
 
 
@@ -103,30 +129,8 @@ const Dashboard = () => {
           xl={3}
           xs={12}
         >
-          <LatestProducts />
+          <Applications />
         </Grid>
-
-
-        <Grid
-        item
-        lg={8}
-        md={12}
-        xl={9}
-        xs={12}
-      >
-        <TableauBoard />
-      </Grid>
-
-
-      <Grid
-      item
-      lg={4}
-      sm={6}
-      xl={3}
-      xs={12}
-    >
-      <DailyTasks />
-    </Grid>
 
 
         <Grid
@@ -136,7 +140,29 @@ const Dashboard = () => {
           xl={9}
           xs={12}
         >
-          <LatestOrders />
+          <TableauBoard />
+        </Grid>
+
+
+        <Grid
+          item
+          lg={4}
+          sm={6}
+          xl={3}
+          xs={12}
+        >
+          <PendingTasks />
+        </Grid>
+
+
+        <Grid
+          item
+          lg={8}
+          md={12}
+          xl={9}
+          xs={12}
+        >
+          <LatestTasks />
         </Grid>
 
         
@@ -147,7 +173,7 @@ const Dashboard = () => {
           xl={9}
           xs={12}
         >
-          <LatestSales />
+          < TasksCompleted/>
         </Grid>
         
         

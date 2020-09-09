@@ -17,7 +17,7 @@ import {
   NotFound as NotFoundView
 } from './views';
 
-import Integrations from './views/Integrations/Integrations';
+import Integrations from './views/Capabilities/Capabilities';
 const Routes = () => {
   return (
     <Switch>
@@ -44,7 +44,7 @@ const Routes = () => {
         component={Integrations}
         exact
         layout={MainLayout}
-        path="/integrations"
+        path="/capabilities"
       />
       <RouteWithLayout
         component={TasksView}

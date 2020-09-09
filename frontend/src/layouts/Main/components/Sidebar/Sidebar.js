@@ -77,8 +77,8 @@ const Sidebar = props => {
       icon: <AssessmentIcon />
     },
     {
-      title: 'Contracts',
-      href: '/integrations',
+      title: 'Capabilities',
+      href: '/capabilities',
       icon: <AppsIcon />
     },
     {
