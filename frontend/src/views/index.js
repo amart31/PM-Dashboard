@@ -1,4 +1,5 @@
 export { default as Account } from './Account';
+export { default as Capabilities } from './Capabilities';
 export { default as Dashboard } from './Dashboard';
 export { default as Tasks } from './Resources';
 export { default as Tableau } from './Tableau';
