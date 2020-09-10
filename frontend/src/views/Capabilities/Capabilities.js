@@ -8,7 +8,7 @@ import {
   ProgressSummary,
   
 } from './components';
-
+import injectContext from '../../store/appContext';
 import { Context } from '../../store/appContext';
 
 const useStyles = makeStyles(theme => ({
@@ -63,4 +63,4 @@ const Capabilities = () => {
   );
 };
 
-export default Capabilities;
+export default injectContext(Capabilities);

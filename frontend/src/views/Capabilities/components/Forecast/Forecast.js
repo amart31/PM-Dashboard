@@ -142,7 +142,7 @@ function Forecast(props) {
           <form noValidate autoComplete="off">
             <div>
               <TextField
-              className={classes.formControl}
+                className={classes.formControl}
                 id="name"
                 label="Capability Name"
                 placeholder="Capability's Name"
@@ -153,7 +153,7 @@ function Forecast(props) {
               />
               
               <TextField
-              className={classes.formControl}
+                className={classes.formControl}
                 id="number"
                 type="number"
                 label="Capability Number"
@@ -170,7 +170,7 @@ function Forecast(props) {
 
           
               <TextField
-              className={classes.formControl}
+                className={classes.formControl}
                 id="length"
                 type="number"
                 label="Length"
@@ -220,7 +220,7 @@ function Forecast(props) {
               </FormControl>
 
               <TextField
-              className={classes.formControl}
+                className={classes.formControl}
                 id="dependency"
                 label="Dependency"
                 placeholder="Dependency"

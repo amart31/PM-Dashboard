@@ -36,9 +36,10 @@ const useStyles = makeStyles(theme =>({
 }));
 
 const statusColors = {
-  Done: 'success',
-  ToDo: 'info',
-  Working: 'warning'
+  'In Development': 'success',
+  'Not Started': 'warning',
+  'Elaboration Complete': 'info',
+  'In Elaboration': 'primary',
 };
 
 
@@ -46,9 +47,6 @@ const CapabilitiesTable =(props) =>{
   const classes = useStyles();
   const { className, ...rest } = props;
   const { store } = useContext(Context);
-
-  
-  
 
   const [capabilities, setCapabilities] = useState(store.capabilities);
 
@@ -60,7 +58,8 @@ const CapabilitiesTable =(props) =>{
         console.log(data.items);
         console.log(capabilities);
       })
-  }, )
+  }, []);
+
   return (
     <TableContainer component={Paper} {...rest}
       className={clsx(classes.root, className)}>

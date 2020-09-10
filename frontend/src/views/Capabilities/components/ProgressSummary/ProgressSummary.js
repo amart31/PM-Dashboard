@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Doughnut } from 'react-chartjs-2';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
@@ -46,11 +46,35 @@ const ProgressSumary = props => {
 
   const classes = useStyles();
   const theme = useTheme();
+  const { store } = useContext(Context);
+
+  const [capabilities, setCapabilities] = useState(store.capabilities);
+
+  useEffect(() => {
+    fetch('https://bah-pm-dashboard-backend.herokuapp.com/capabilities')
+      .then(response => response.json())
+      .then(data => {
+        setCapabilities(data.items);
+        console.log(data.items);
+        console.log(capabilities);
+       
+      })
+  },[] );
+
+  const first = capabilities.filter(status => status.status === 'Not Started');
+  const second = capabilities.filter(status => status.status === 'In Elaboration');
+  const third = capabilities.filter(status => status.status === 'In Development');
+  const fourth = capabilities.filter(status => status.status === 'Elaboration Complete');
+  console.log(first);
+  console.log(second);
+  console.log(third);
+  console.log(fourth);
+  console.log(capabilities);
 
   const data = {
     datasets: [
       {
-        data: [60, 15, 23, 1],
+        data: [first.length, second.length, fourth.length, third.length],
         backgroundColor: [
           theme.palette.primary.main,
           theme.palette.error.main,
@@ -90,25 +114,25 @@ const ProgressSumary = props => {
   const devices = [
     {
       title: 'Not Started',
-      value: '60',
+      value: first.length,
       icon: <WorkIcon />,
       color: theme.palette.primary.main
     },
     {
       title: 'In Elaboration',
-      value: '15',
+      value: second.length,
       icon: <WorkOutlineIcon />,
       color: theme.palette.error.main
     },
     {
       title: 'Elaboration Complete',
-      value: '23',
+      value: fourth.length,
       icon: <AssignmentTurnedInIcon />,
       color: theme.palette.warning.main
     },
     {
       title: 'In Development',
-      value: '1',
+      value: third.length,
       icon: <AssignmentTurnedInIcon />,
       color: theme.palette.warning.main
     }
@@ -147,7 +171,7 @@ const ProgressSumary = props => {
                 style={{ color: device.color }}
                 variant="h2"
               >
-                {device.value}%
+                {device.value}
               </Typography>
             </div>
           ))}
@@ -161,4 +185,4 @@ ProgressSumary.propTypes = {
   className: PropTypes.string
 };
 
-export default ProgressSumary;
+export default injectContext(ProgressSumary);

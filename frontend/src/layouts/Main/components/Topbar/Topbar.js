@@ -22,8 +22,8 @@ const useStyles = makeStyles(theme => ({
     objectFit: 'contain'
   },
   img: {
-    width: '20%',
-    height: '20%',
+    width: 200,
+    height: 200,
     objectFit: 'contain'
   },
   flexGrow: {
