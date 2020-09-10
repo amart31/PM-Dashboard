@@ -31,14 +31,10 @@ const useStyles = makeStyles(theme => ({
     display: 'flex'
   },
   title: {
-    fontWeight: 700
-  },
-  avatar: {
-    backgroundColor: theme.palette.white,
+    fontWeight: 700,
     color: theme.palette.primary.main,
-    height: 56,
-    width: 56
   },
+  
   formControl: {
     margin: theme.spacing(1),
     minWidth: 120,
@@ -46,10 +42,7 @@ const useStyles = makeStyles(theme => ({
   selectEmpty: {
     marginTop: theme.spacing(2),
   },
-  icon: {
-    height: 32,
-    width: 32
-  },
+  
   difference: {
     marginTop: theme.spacing(2),
     display: 'flex',
@@ -74,28 +67,40 @@ function Forecast(props) {
   const [number, setNumber] = React.useState('');
   const [size, setSize] = React.useState('');
   const [status, setStatus] = React.useState('');
+
+  const [dependency, setDependency] = React.useState('');
   
 
 
   const handleLength = (event) => {
     setLength(event.target.value);
+    event.preventDefault();
    
   };
   const handleName = (event) => {
     setName(event.target.value);
+    event.preventDefault();
    
   };
   
   const handleNumber = (event) => {
     setNumber(event.target.value);
+    event.preventDefault();
    
   };
   const handleSize = (event) => {
     setSize(event.target.value);
+    event.preventDefault();
    
   };
   const handleStatus = (event) => {
     setStatus(event.target.value);
+    event.preventDefault();
+   
+  };
+  const handleDependency = (event) => {
+    setDependency(event.target.value);
+    event.preventDefault();
    
   };
 
@@ -118,19 +123,23 @@ function Forecast(props) {
               gutterBottom
               variant="body2"
             >
-              FORECAST
+              CY2020 Progress Summary
             </Typography>
-            <ArrowUpwardIcon className={classes.differenceIcon} />
           </Grid>
           <Grid item>
-            <Avatar className={classes.avatar}>
-              <AccessTimeIcon className={classes.icon} />
-            </Avatar>
+          <Typography
+          className={classes.title}
+          color="inherit"
+          gutterBottom
+          variant="body2"
+        >
+          CY2020 Forecast
+        </Typography>
           </Grid>
         </Grid>
         <Grid item>
         
-          <form className={classes.root} noValidate autoComplete="off">
+          <form noValidate autoComplete="off">
             <div>
               <TextField
                 id="name"
@@ -143,6 +152,7 @@ function Forecast(props) {
               />
               <TextField
                 id="number"
+                type="number"
                 label="Capability Number"
                 placeholder="Capability's Number"
                 multiline
@@ -156,8 +166,8 @@ function Forecast(props) {
          
               <TextField
                 id="length"
+                type="number"
                 label="Length"
-                placeholder="Capability's Length"
                 placeholder="Capability's Length"
                 multiline
                 rowsMax={4}
@@ -169,7 +179,6 @@ function Forecast(props) {
               <TextField
                 id="size"
                 label="Size"
-                placeholder="Capability's Size"
                 placeholder="Capability's Size"
                 multiline
                 rowsMax={4}
@@ -190,21 +199,36 @@ function Forecast(props) {
                   value={status}
                   onChange={handleStatus}
                 >
-                  <MenuItem value={'Elaboration Complete'}>Working</MenuItem>
-                  <MenuItem value={'In Elaboration'}>ToDo</MenuItem>
-                  <MenuItem value={'Not Started'}>Done</MenuItem>
-                  <MenuItem value={'In Development'}>Done</MenuItem>
+                  <MenuItem value={'Elaboration Complete'}>Elaboration Complete</MenuItem>
+                  <MenuItem value={'In Elaboration'}>In Elaboration</MenuItem>
+                  <MenuItem value={'Not Started'}>Not Started</MenuItem>
+                  <MenuItem value={'In Development'}>In Development</MenuItem>
                 </Select>
               </FormControl>
+
+              <TextField
+                id="dependency"
+                label="Dependency"
+                placeholder="Dependency"
+                multiline
+                rowsMax={4}
+                value={dependency}
+                onChange={handleDependency}
+            
+              />
       
             </div>
             <Button variant="contained" color="primary" onClick={() => {
-              actions.createCapability(length,
+              actions.createCapability(
+                length,
                 name,
                 number,
                 size,
-                status);
-            }}
+                status
+              );
+              
+            }
+            }
             >
     Submit
             </Button>
@@ -218,7 +242,13 @@ function Forecast(props) {
 
 Forecast.propTypes = {
   className: PropTypes.string,
-  length: PropTypes.number
+  dependancy: PropTypes.string,
+  length: PropTypes.number,
+  name: PropTypes.string,
+  number: PropTypes.number,
+  size: PropTypes.string,
+  status: PropTypes.string,
+
 };
 
 

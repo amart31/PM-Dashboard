@@ -145,15 +145,18 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
 
       createCapability: (
+     
         length,
         name,
         number,
         size,
-        status
+        status,
+        dependency
+        
       ) => {
         const store = getStore();
         const endpoint =
-					'https://bah-pm-dashboard-backend.herokuapp.com/resources';
+					'https://bah-pm-dashboard-backend.herokuapp.com/capabilities';
 
   
         fetch(endpoint, {
@@ -163,11 +166,15 @@ const getState = ({ getStore, getActions, setStore }) => {
             accept: 'application/json'
           },
           body: JSON.stringify({
+          
             length: length,
             name: name,
             number: number,
             size: size,
             status: status,
+            dependancy: dependency
+
+            
           })
         })
           .then(function(response) {

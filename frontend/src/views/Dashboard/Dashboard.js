@@ -8,7 +8,12 @@ import {
   ScopeManagement,
   Resources,
   ClientSatisfaction,
-  SecurityITC
+  SecurityITC,
+  ProjectSummary,
+  PMTasks,
+  ScopeTasks,
+  TechnicalTasks,
+  ResourcesTasks
 } from './components';
 
 import { Context } from '../../store/appContext';
@@ -88,7 +93,55 @@ const Dashboard = () => {
         </Grid>
 
         
-    
+        <Grid
+          item
+          lg={10}
+          sm={12}
+          xl={10}
+          xs={12}
+        >
+          <ProjectSummary />
+        </Grid>
+
+        <Grid
+          item
+          lg={4}
+          sm={12}
+          xl={4}
+          xs={12}
+        >
+          <PMTasks />
+        </Grid>
+
+        <Grid
+          item
+          lg={4}
+          sm={12}
+          xl={4}
+          xs={12}
+        >
+          <ScopeTasks />
+        </Grid>
+
+        <Grid
+          item
+          lg={4}
+          sm={12}
+          xl={4}
+          xs={12}
+        >
+          <TechnicalTasks />
+        </Grid>
+
+        <Grid
+          item
+          lg={4}
+          sm={12}
+          xl={4}
+          xs={12}
+        >
+          <ResourcesTasks />
+        </Grid>
 
       </Grid>
     </div>

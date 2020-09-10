@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
@@ -45,10 +45,22 @@ const statusColors = {
 const CapabilitiesTable =(props) =>{
   const classes = useStyles();
   const { className, ...rest } = props;
-
   const { store } = useContext(Context);
-  const rows = store.capabilities;
 
+  
+  
+
+  const [capabilities, setCapabilities] = useState(store.capabilities);
+
+  useEffect(() => {
+    fetch('https://bah-pm-dashboard-backend.herokuapp.com/capabilities')
+      .then(response => response.json())
+      .then(data => {
+        setCapabilities(data.items);
+        console.log(data.items);
+        console.log(capabilities);
+      })
+  }, )
   return (
     <TableContainer component={Paper} {...rest}
       className={clsx(classes.root, className)}>
@@ -64,7 +76,7 @@ const CapabilitiesTable =(props) =>{
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
+          {capabilities.map((row) => (
             <TableRow hover key={row.id}>
               <TableCell component="th" scope="row">
                 {row.number}
@@ -74,16 +86,16 @@ const CapabilitiesTable =(props) =>{
               <TableCell >
                 <div className={classes.statusContainer}>
               
-              <StatusBullet
-                className={classes.status}
-                color={statusColors[row.status]}
-                size="sm"
-              />{row.status}
-              </div>
+                  <StatusBullet
+                    className={classes.status}
+                    color={statusColors[row.status]}
+                    size="sm"
+                  />{row.status}
+                </div>
               
               </TableCell>
               <TableCell >{row.length} days</TableCell>
-              <TableCell >{row.dependency}</TableCell>
+              <TableCell >{row.dependancy}</TableCell>
             </TableRow>
           ))}
         </TableBody>
