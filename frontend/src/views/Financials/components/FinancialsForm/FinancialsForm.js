@@ -8,8 +8,6 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 
 import FormControl from '@material-ui/core/FormControl';
-
-
 import injectContext from '../../../../store/appContext';
 import { Context } from '../../../../store/appContext';
 import PropTypes from 'prop-types';
@@ -30,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ResourceForm() {
+function ResourceForm() {
   const classes = useStyles();
   const [projectName, setProjectName] = React.useState('');
   const [resourceName, setResourceName] = React.useState('');
@@ -132,4 +130,6 @@ ResourceForm.contextTypes = {
   projectName: PropTypes.string,
   resourceName: PropTypes.string,
   duration: PropTypes.number
-}
+};
+
+export default injectContext(ResourceForm);

@@ -17,6 +17,14 @@ const useStyles = makeStyles(theme => ({
   root: {
     boxShadow: 'none'
   },
+  toolbarImg: {
+    height: 64,
+  },
+  img: {
+    width: '10%',
+    height: '10%',
+    objectFit: 'contain'
+  },
   flexGrow: {
     flexGrow: 1
   },
@@ -40,12 +48,11 @@ const Topbar = props => {
       {...rest}
       className={clsx(classes.root, className)}
     >
-      <Toolbar>
+      <Toolbar className={classes.toolbarImg}>
         <RouterLink to="/">
           <img
+            className={classes.img}
             alt="Logo"
-            width="100" 
-            height="60"
             src="https://github.com/amart31/PM-Dashboard/blob/master/frontend/public/images/logos/logo--white.png?raw=true"
           />
         </RouterLink>

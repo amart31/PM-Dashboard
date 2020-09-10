@@ -2,6 +2,7 @@ const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
       projects: [{}],
+      capabilities: [{}],
       resources: [
 				
         {	'duration': 10,
@@ -27,6 +28,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           .then(response => {
             if (response.status !== 200) {
               alert('Connection error, status ' + response.status);
+              console.log(response);
               return;
             }
             response.json().then(data => {
@@ -34,16 +36,40 @@ const getState = ({ getStore, getActions, setStore }) => {
               
               
               console.log(store);
-              setStore({ projects: data.projects });
+              setStore({ projects: data.items });
             });
           })
           .catch(err => {
             alert('Fetch error: ', err);
           });
+      },
+      loadCapabilities: () => {
+        /**
+					fetch().then().then(data => setStore({ "foo": data.bar }))
+        */
 
-        
-          
-       
+       const store = getStore();
+
+        fetch(
+          'https://bah-pm-dashboard-backend.herokuapp.com/capabilities'
+        )
+          .then(response => {
+            if (response.status !== 200) {
+              alert('Connection error, status ' + response.status);
+              console.log('Capabilitites: ' + response);
+              return;
+            }
+            response.json().then(data => {
+              console.log('Capabilitites: ' + data);
+              
+              
+              console.log(store);
+              setStore({ capabilities: data.items });
+            });
+          })
+          .catch(err => {
+            alert('Fetch error: ', err);
+          });
       },
 
       changeColor: (index, color) => {
@@ -105,6 +131,63 @@ const getState = ({ getStore, getActions, setStore }) => {
                 response.json().then(data => {
                   const store = getStore();
                   store.products = data;
+                  setStore({ store });
+                });
+              })
+              .catch(err => {
+                alert('Fetch error: ', err);
+              });
+          })
+
+          .catch(err => {
+            alert('Fetch error: ', err);
+          });
+      },
+
+      createCapability: (
+        length,
+        name,
+        number,
+        size,
+        status
+      ) => {
+        const store = getStore();
+        const endpoint =
+					'https://bah-pm-dashboard-backend.herokuapp.com/resources';
+
+  
+        fetch(endpoint, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            accept: 'application/json'
+          },
+          body: JSON.stringify({
+            length: length,
+            name: name,
+            number: number,
+            size: size,
+            status: status,
+          })
+        })
+          .then(function(response) {
+            return response.json();
+          })
+          .then(res => {
+            fetch(
+              'https://bah-pm-dashboard-backend.herokuapp.com/capabilities'
+            )
+              .then(response => {
+                if (response.status !== 200) {
+                  alert(
+                    'Connection error, status ' +
+											response.status
+                  );
+                  return;
+                }
+                response.json().then(data => {
+                  const store = getStore();
+                  store.capabilities = data;
                   setStore({ store });
                 });
               })

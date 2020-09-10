@@ -49,7 +49,7 @@ const ResourceTable =(props) =>{
   const { className, ...rest } = props;
 
   const { store } = useContext(Context);
-  const data = store.projects;
+  const rows = store.projects;
 
   return (
     <TableContainer component={Paper} {...rest}
@@ -66,8 +66,8 @@ const ResourceTable =(props) =>{
           </TableRow>
         </TableHead>
         <TableBody>
-          {data.map((row) => (
-            <TableRow hover key={row.id}>
+          {rows.map((row) => (
+            <TableRow  key={row.id} hover >
               <TableCell component="th" scope="row">
                 {row.projectName}
               </TableCell>
