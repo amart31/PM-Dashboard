@@ -26,6 +26,7 @@ const Capabilities = () => {
       >
         <Grid
           item
+          alignSelf="center"
           lg={6}
           sm={6}
           xl={6}
@@ -34,16 +35,7 @@ const Capabilities = () => {
         <FinancialsForm />
         </Grid>
         
-        <Grid
-        item
         
-        lg={6}
-        sm={6}
-        xl={6}
-        xs={6}
-        >
-        <TableauBudget />
-        </Grid>
         <Grid
           item
           lg={12}

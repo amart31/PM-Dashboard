@@ -127,14 +127,14 @@ function Forecast(props) {
             </Typography>
           </Grid>
           <Grid item>
-          <Typography
-          className={classes.title}
-          color="inherit"
-          gutterBottom
-          variant="body2"
-        >
+            <Typography
+              className={classes.title}
+              color="inherit"
+              gutterBottom
+              variant="body2"
+            >
           CY2020 Forecast
-        </Typography>
+            </Typography>
           </Grid>
         </Grid>
         <Grid item>
@@ -142,50 +142,63 @@ function Forecast(props) {
           <form noValidate autoComplete="off">
             <div>
               <TextField
+              className={classes.formControl}
                 id="name"
                 label="Capability Name"
                 placeholder="Capability's Name"
                 multiline
-                rowsMax={4}
+                rowsMax={6}
                 value={name}
                 onChange={handleName}
               />
+              
               <TextField
+              className={classes.formControl}
                 id="number"
                 type="number"
                 label="Capability Number"
                 placeholder="Capability's Number"
                 multiline
-                rowsMax={4}
+                rowsMax={6}
                 value={number}
                 onChange={handleNumber}
               />
          
             </div>
             <div>
-         
+
+
+          
               <TextField
+              className={classes.formControl}
                 id="length"
                 type="number"
                 label="Length"
                 placeholder="Capability's Length"
                 multiline
-                rowsMax={4}
+                rowsMax={6}
                 value={length}
                 onChange={handleLength}
             
               />
+              <FormControl className={classes.formControl}>
+  
+                <InputLabel id="sizeLabel">Size</InputLabel>
+                <Select
+                  labelId='sizeLabel'
+                  id="size"
+                  value={size}
+                  onChange={handleSize}
+                >
+                  <MenuItem value={'S'}>S</MenuItem>
+                  <MenuItem value={'M'}>M</MenuItem>
+                  <MenuItem value={'L'}>L</MenuItem>
+                  <MenuItem value={'XL'}>XL</MenuItem>
+                  <MenuItem value={'XXL'}>XXL</MenuItem>
+                </Select>
+              </FormControl>
 
-              <TextField
-                id="size"
-                label="Size"
-                placeholder="Capability's Size"
-                multiline
-                rowsMax={4}
-                value={size}
-                onChange={handleSize}
-            
-              />
+              
          
             </div>
             <div>
@@ -207,11 +220,12 @@ function Forecast(props) {
               </FormControl>
 
               <TextField
+              className={classes.formControl}
                 id="dependency"
                 label="Dependency"
                 placeholder="Dependency"
                 multiline
-                rowsMax={4}
+                rowsMax={6}
                 value={dependency}
                 onChange={handleDependency}
             

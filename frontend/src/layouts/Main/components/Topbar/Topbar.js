@@ -19,10 +19,11 @@ const useStyles = makeStyles(theme => ({
   },
   toolbarImg: {
     height: 64,
+    objectFit: 'contain'
   },
   img: {
-    width: '10%',
-    height: '10%',
+    width: '20%',
+    height: '20%',
     objectFit: 'contain'
   },
   flexGrow: {

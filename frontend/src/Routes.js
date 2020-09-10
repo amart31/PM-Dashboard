@@ -47,7 +47,7 @@ const Routes = () => {
         component={TableauView}
         exact
         layout={MainLayout}
-        path="/budget"
+        path="/burn-chart"
       />
       <RouteWithLayout
         component={RisksView}

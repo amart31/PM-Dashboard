@@ -21,6 +21,7 @@ const Tableau = () => {
     <div className={classes.root}>
       <Grid
         container
+        justify="center"
         spacing={4}
       >
      

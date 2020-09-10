@@ -56,8 +56,8 @@ const Sidebar = props => {
       icon: <DashboardIcon />
     },
     {
-      title: 'Budget',
-      href: '/budget',
+      title: 'Burn-Chart',
+      href: '/burn-chart',
       icon: <AccountBalanceWalletIcon />
     },
     {
