@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/PM-Dashboard/static/css/main.fec45a73.chunk.css",
-    "main.js": "/PM-Dashboard/static/js/main.c486df70.chunk.js",
-    "main.js.map": "/PM-Dashboard/static/js/main.c486df70.chunk.js.map",
+    "main.js": "/PM-Dashboard/static/js/main.0288ce05.chunk.js",
+    "main.js.map": "/PM-Dashboard/static/js/main.0288ce05.chunk.js.map",
     "runtime-main.js": "/PM-Dashboard/static/js/runtime-main.4d4bb08c.js",
     "runtime-main.js.map": "/PM-Dashboard/static/js/runtime-main.4d4bb08c.js.map",
     "static/css/2.18fb2ca0.chunk.css": "/PM-Dashboard/static/css/2.18fb2ca0.chunk.css",
     "static/js/2.61911a4d.chunk.js": "/PM-Dashboard/static/js/2.61911a4d.chunk.js",
     "static/js/2.61911a4d.chunk.js.map": "/PM-Dashboard/static/js/2.61911a4d.chunk.js.map",
     "index.html": "/PM-Dashboard/index.html",
-    "precache-manifest.b0c31b853d435accc3b385c9233387b0.js": "/PM-Dashboard/precache-manifest.b0c31b853d435accc3b385c9233387b0.js",
+    "precache-manifest.57c28c2f8d0c647c43704b1feffc3a16.js": "/PM-Dashboard/precache-manifest.57c28c2f8d0c647c43704b1feffc3a16.js",
     "service-worker.js": "/PM-Dashboard/service-worker.js",
     "static/css/2.18fb2ca0.chunk.css.map": "/PM-Dashboard/static/css/2.18fb2ca0.chunk.css.map",
     "static/css/main.fec45a73.chunk.css.map": "/PM-Dashboard/static/css/main.fec45a73.chunk.css.map",
@@ -20,6 +20,6 @@
     "static/css/2.18fb2ca0.chunk.css",
     "static/js/2.61911a4d.chunk.js",
     "static/css/main.fec45a73.chunk.css",
-    "static/js/main.c486df70.chunk.js"
+    "static/js/main.0288ce05.chunk.js"
   ]
 }
