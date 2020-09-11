@@ -38,6 +38,12 @@ const rows = [
   createData(5, 'XXL', 1, 8),
 ];
 
+function totalPoints(items) {
+    return items.map(({ pointTotal }) => pointTotal).reduce((sum, i) => sum + i, 0);
+  }
+
+  const allPoints = totalPoints(rows);
+
 export default function SimpleTables() {
   const classes = useStyles();
 
@@ -57,13 +63,19 @@ export default function SimpleTables() {
             {rows.map((row) => (
               <TableRow key={row.point}>
                 <TableCell component="th" scope="row">
-                  {row.point}
+                  {row.point} 
                 </TableCell>
                 <TableCell align="right">{row.size}</TableCell>
-                <TableCell align="right">{row.count}</TableCell>
-                <TableCell align="right">{row.pointTotal}</TableCell>
+                <TableCell align="right">{row.count} capabilities</TableCell>
+                <TableCell align="right">{row.pointTotal} points</TableCell>
               </TableRow>
             ))}
+
+            <TableRow>
+            
+            <TableCell colSpan={3}>Total Points</TableCell>
+            <TableCell align="right">{allPoints} points</TableCell>
+          </TableRow>
           </TableBody>
         </Table>
       </TableContainer>

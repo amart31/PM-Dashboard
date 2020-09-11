@@ -6,6 +6,7 @@ import {
   CapabilitiesTable,
   Forecast,
   ProgressSummary,
+  Form
   
 } from './components';
 import injectContext from '../../store/appContext';
@@ -38,11 +39,11 @@ const Capabilities = () => {
         </Grid>
         
         <Grid
-        item
-        lg={6}
-        sm={6}
-        xl={6}
-        xs={6}
+          item
+          lg={6}
+          sm={6}
+          xl={6}
+          xs={6}
         >
           <ProgressSummary />
         </Grid>
@@ -52,9 +53,20 @@ const Capabilities = () => {
           sm={12}
           xl={12}
           xs={12}
+      >
+        <Form />
+      </Grid>
+        <Grid
+          item
+          lg={12}
+          sm={12}
+          xl={12}
+          xs={12}
         >
           <CapabilitiesTable />
         </Grid>
+
+        
        
         
         
