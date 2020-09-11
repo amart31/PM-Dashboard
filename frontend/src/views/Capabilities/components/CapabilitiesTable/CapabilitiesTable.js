@@ -70,7 +70,7 @@ const CapabilitiesTable =(props) =>{
             <TableCell >Capability Name</TableCell>
             <TableCell >Size</TableCell>
             <TableCell >Status</TableCell>
-            <TableCell >Lenght</TableCell>
+            <TableCell >Length</TableCell>
             <TableCell >Dependency</TableCell>
           </TableRow>
         </TableHead>
