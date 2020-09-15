@@ -12,3 +12,4 @@ export { default as PMTasks } from './PMTasks';
 export { default as ScopeTasks } from './ScopeMngmtTasks';
 export { default as TechnicalTasks } from './TechnicalTasks';
 export { default as ResourcesTasks } from './ResourcesTasks';
+export { default as OrgChart } from './OrgChart';

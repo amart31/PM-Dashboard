@@ -13,7 +13,8 @@ import {
   PMTasks,
   ScopeTasks,
   TechnicalTasks,
-  ResourcesTasks
+  ResourcesTasks,
+  OrgChart
 } from './components';
 
 import { Context } from '../../store/appContext';
@@ -34,6 +35,13 @@ const Dashboard = () => {
         container
         spacing={2}
       >
+      <Grid
+          item
+          
+          xs={12}
+        >
+          <OrgChart />
+        </Grid>
         <Grid
           item
           lg={2}
