@@ -36,6 +36,12 @@ export default {
     main: colors.orange[600],
     light: colors.orange[400]
   },
+  yellow: {
+    contrastText: white,
+    dark: colors.yellow[900],
+    main: colors.yellow[600],
+    light: colors.yellow[400]
+  },
   error: {
     contrastText: white,
     dark: colors.red[900],

@@ -21,11 +21,10 @@ import { Context } from '../../../../store/appContext';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    height: '100%'
+    height: 350,
   },
   chartContainer: {
     position: 'relative',
-    height: '300px'
   },
   stats: {
     marginTop: theme.spacing(2),

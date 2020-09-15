@@ -91,6 +91,10 @@ function CapabilititesForm() {
 
   const { store, actions } = useContext(Context);
 
+  function refreshPage() {
+    window.location.reload(false);
+  }
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -220,9 +224,9 @@ function CapabilititesForm() {
               name,
               number,
               size,
-              status
+              status,
+              dependency
             );
-        
           }
           }
           >

@@ -16,8 +16,12 @@ import RefreshIcon from '@material-ui/icons/Refresh';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    height: '100%',
+    height: 350,
     color: theme.palette.primary.contrastText,
+  },
+  card: {
+    height: 200,
+    width: 300,
   },
   content: {
     alignItems: 'center',
@@ -68,14 +72,14 @@ function Forecast(props) {
 
         <Grid
           container
-          justify="space-evenly"
+          justify="space-between"
           
         >
           <Grid item>
             
 
 
-            <Card className={classes.root}>
+            <Card className={classes.card}>
               <CardContent>
                 <Typography className={classes.title} color="textSecondary" gutterBottom>
               CY20 Forecast
@@ -102,7 +106,7 @@ function Forecast(props) {
 
           <Grid item>
         
-            <Card className={classes.root}>
+            <Card className={classes.card}>
               <CardContent>
                 <Typography className={classes.title} color="textSecondary" gutterBottom>
         CY20 In Progress
