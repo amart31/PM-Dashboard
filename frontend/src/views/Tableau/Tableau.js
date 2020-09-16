@@ -47,9 +47,9 @@ const Tableau = () => {
             item
 
 
-            lg={4}
-            md={4}
-            xl={4}
+            lg={6}
+            md={6}
+            xl={6}
             xs={12}
       
       
@@ -60,9 +60,9 @@ const Tableau = () => {
           <Grid
             item
       
-            lg={8}
-            md={8}
-            xl={8}
+            lg={6}
+            md={6}
+            xl={6}
             xs={12}
           >
             <ResourceManagement />
