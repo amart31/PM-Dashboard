@@ -9,4 +9,6 @@ export { default as Risks } from './Risks';
 
 export { default as Tasks } from './Financials';
 export { default as Tableau } from './Tableau';
+export { default as Scopes } from './Scopes';
+export { default as Miscelaneous } from './Miscelaneous';
 export { default as NotFound } from './NotFound';

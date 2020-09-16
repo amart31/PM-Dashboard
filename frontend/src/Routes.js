@@ -12,7 +12,9 @@ import {
   Capabilities as CapabilitiesView,
   Deliveries as DeliveriesView,
   Risks as RisksView,
-  Criteria as CriteriaView
+  Criteria as CriteriaView,
+  Scopes as ScopesView,
+  Miscelaneous as MiscelaneousView
 
 } from './views';
 
@@ -56,10 +58,16 @@ const Routes = () => {
         path="/risks"
       />
       <RouteWithLayout
-        component={CriteriaView}
+        component={ScopesView}
         exact
         layout={MainLayout}
-        path="/criteria"
+        path="/scope"
+      />
+      <RouteWithLayout
+        component={MiscelaneousView}
+        exact
+        layout={MainLayout}
+        path="/extras"
       />
       <RouteWithLayout
         component={NotFoundView}

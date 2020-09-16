@@ -46,9 +46,15 @@ const Sidebar = props => {
       icon: <DashboardIcon />
     },
     {
-      title: 'Delivery Options',
-      href: '/deliveries',
+      title: 'Scope',
+      href: '/scope',
       icon: <TimelapseIcon />
+    },
+    ,
+    {
+      title: 'Financials',
+      href: '/financials',
+      icon: <AssignmentIcon />
     },
     {
       title: 'Risks',
@@ -56,24 +62,9 @@ const Sidebar = props => {
       icon: <DashboardIcon />
     },
     {
-      title: 'Burn-Chart',
-      href: '/burn-chart',
-      icon: <AccountBalanceWalletIcon />
-    },
-    {
-      title: 'Criteria',
-      href: '/criteria',
+      title: 'Miscelaneous',
+      href: '/extras',
       icon: <DashboardIcon />
-    },
-    {
-      title: 'Capabilities',
-      href: '/capabilities',
-      icon: <AppsIcon />
-    },
-    {
-      title: 'Financials',
-      href: '/financials',
-      icon: <AssignmentIcon />
     }
   ];
 
