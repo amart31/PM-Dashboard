@@ -43,6 +43,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
+
 function CapabilititesForm() {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -165,6 +166,7 @@ function CapabilititesForm() {
               rowsMax={6}
               value={length}
               onChange={handleLength}
+              variant="filled"
       
             />
             <FormControl className={classes.formControl}>
@@ -181,6 +183,7 @@ function CapabilititesForm() {
                 <MenuItem value={'L'}>L</MenuItem>
                 <MenuItem value={'XL'}>XL</MenuItem>
                 <MenuItem value={'XXL'}>XXL</MenuItem>
+                <MenuItem value={'Unknown'}>Unknown</MenuItem>
               </Select>
             </FormControl>
 

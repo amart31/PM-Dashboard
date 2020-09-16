@@ -2,6 +2,8 @@ const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
       projects: [{}],
+      scopes: [{}],
+      totalPoints: 0,
       capabilities: [{}],
       resources: [
 				
@@ -65,6 +67,61 @@ const getState = ({ getStore, getActions, setStore }) => {
               
               console.log(store);
               setStore({ capabilities: data.items });
+            });
+          })
+          .catch(err => {
+            alert('Fetch error: ', err);
+          });
+      },
+      loadScopes: () => {
+        /**
+					fetch().then().then(data => setStore({ "foo": data.bar }))
+        */
+
+       const store = getStore();
+
+        fetch(
+          'https://bah-pm-dashboard-backend.herokuapp.com/scopes'
+        )
+          .then(response => {
+            if (response.status !== 200) {
+              alert('Connection error, status ' + response.status);
+              console.log(response);
+              return;
+            }
+            response.json().then(data => {
+              console.log(data);
+              
+              
+              console.log(store);
+              setStore({ scopes: data.items });
+            });
+          })
+          .catch(err => {
+            alert('Fetch error: ', err);
+          });
+      },
+      loadTotalPoints: () => {
+        /**
+					fetch().then().then(data => setStore({ "foo": data.bar }))
+        */
+
+       const store = getStore();
+
+        fetch(
+          'https://bah-pm-dashboard-backend.herokuapp.com/scopes'
+        )
+          .then(response => {
+            if (response.status !== 200) {
+              alert('Connection error, status ' + response.status);
+        
+              return;
+            }
+            response.json().then(data => {
+              console.log(data);
+              
+              setStore({ totalPoints: data.items[8].points});
+              console.log(store.totalPoints);
             });
           })
           .catch(err => {
@@ -195,6 +252,59 @@ const getState = ({ getStore, getActions, setStore }) => {
                 response.json().then(data => {
                   const store = getStore();
                   store.capabilities = data;
+                  setStore({ store });
+                });
+              })
+              .catch(err => {
+                alert('Fetch error: ', err);
+              });
+          })
+
+          .catch(err => {
+            alert('Fetch error: ', err);
+          });
+      },
+
+      createScope: (
+     
+        points
+        
+      ) => {
+        const store = getStore();
+        const endpoint =
+					'https://bah-pm-dashboard-backend.herokuapp.com/scopes';
+
+        fetch(endpoint, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            accept: 'application/json'
+          },
+          body: JSON.stringify({
+          
+            points: points,
+           
+            
+          })
+        })
+          .then(function(response) {
+            return response.json();
+          })
+          .then(res => {
+            fetch(
+              'https://bah-pm-dashboard-backend.herokuapp.com/scopes'
+            )
+              .then(response => {
+                if (response.status !== 200) {
+                  alert(
+                    'Connection error, status ' +
+											response.status
+                  );
+                  return;
+                }
+                response.json().then(data => {
+                  const store = getStore();
+                  store.scopes = data;
                   setStore({ store });
                 });
               })
