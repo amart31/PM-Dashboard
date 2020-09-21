@@ -137,7 +137,7 @@ function CustomEditComponent(props) {
 
   const [data, setData] = useState([
     { point: 1, size: 1, count: 9, total: 9 },
-    { point: 2, size: 2, count: 11, total: 22 },
+    { point: 2, size: 2, count: 10, total: 20 },
     { point: 3, size: 3, count: 3, total: 9 },
     { point: 5, size: 5, count: 0, total: 0 },
     { point: 8, size: 8, count: 3, total: 24 },
@@ -224,7 +224,7 @@ function CustomEditComponent(props) {
           }
           }
         >
-Save Total Points
+Submit
         </Button>
 
           

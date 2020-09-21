@@ -37,6 +37,7 @@ const injectContext = PassedComponent => {
       state.actions.loadCapabilities();
       state.actions.loadTotalPoints();
       state.actions.loadScopes();
+      state.actions.loadPointsSizes();
 
 
     }, []);

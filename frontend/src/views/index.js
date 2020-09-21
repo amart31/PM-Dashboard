@@ -12,3 +12,5 @@ export { default as Tableau } from './Tableau';
 export { default as Scopes } from './Scopes';
 export { default as Miscelaneous } from './Miscelaneous';
 export { default as NotFound } from './NotFound';
+
+export { default as SignIn } from './SignIn';

@@ -25,7 +25,7 @@ function TabPanel(props) {
     >
       {value === index && (
         <Box p={3}>
-          <Paper>{children}</Paper>
+          <div>{children}</div>
         </Box>
       )}
     </div>
@@ -65,14 +65,10 @@ export default function SimpleTabs() {
       <AppBar position="static">
         <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
           <Tab label="Deliveries" {...a11yProps(0)} />
-          <Tab label="Next Tab" {...a11yProps(1)} />
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
         <Delivery/>
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-        <Typography>Next tab</Typography>
       </TabPanel>
     </div>
   );

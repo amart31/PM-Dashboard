@@ -4,10 +4,10 @@ const { tableau } = window;
 
 
 
-function TableauBudget() {
+function FinancialsTableau() {
     const ref = useRef(null);
 
-    const url = "https://prod-useast-a.online.tableau.com/t/kanniappasadasivanpraveenatbahcom/views/6MonthFTELabor/Sheet1?:showAppBanner=false&:display_count=n&:showVizHome=n&:origin=viz_share_link";
+    const url = "https://prod-useast-a.online.tableau.com/t/kanniappasadasivanpraveenatbahcom/views/Financials/Sheet1?:showAppBanner=false&:display_count=n&:showVizHome=n&:origin=viz_share_link";
 
     function initViz() {
         new tableau.Viz(ref.current, url)
@@ -26,4 +26,4 @@ function TableauBudget() {
 
 }
 
-export default TableauBudget;
+export default FinancialsTableau;

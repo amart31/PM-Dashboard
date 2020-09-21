@@ -20,8 +20,11 @@ const useStyles = makeStyles(theme => ({
     color: theme.palette.primary.contrastText,
   },
   card: {
-    height: 200,
-    width: 300,
+    width: '100%',
+  },
+  grid:{
+    width: '50%',
+    padding: theme.spacing(1),
   },
   content: {
     alignItems: 'center',
@@ -72,10 +75,10 @@ function Forecast(props) {
 
         <Grid
           container
-          justify="space-between"
+          justify="space-evenly"
           
         >
-          <Grid item>
+          <Grid item className={classes.grid}>
             
 
 
@@ -104,7 +107,7 @@ function Forecast(props) {
 
           </Grid>
 
-          <Grid item>
+          <Grid item className={classes.grid}>
         
             <Card className={classes.card}>
               <CardContent>

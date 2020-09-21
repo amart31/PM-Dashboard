@@ -9,6 +9,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 import InputIcon from '@material-ui/icons/Input';
 import Typography from '@material-ui/core/Typography';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 import Tooltip from '@material-ui/core/Tooltip';
 import { isNonNullExpression } from 'typescript';
@@ -59,16 +60,12 @@ const Topbar = props => {
         </RouterLink>
         <div className={classes.flexGrow} />
         <Hidden mdDown>
-          <RouterLink to="/capabilities" className={classes.link}>
+          <RouterLink to="/signin" className={classes.link}>
             <Typography className={classes.toolbarLink} color="inherit" variant="button" display="block" gutterBottom>
-        Capabilitites
+              <ExitToAppIcon />
             </Typography>
           </RouterLink>
-          <RouterLink to="/financials" className={classes.link}>
-            <Typography className={classes.toolbarLink} color="inherit" variant="button" display="block" gutterBottom>
-        Financials
-            </Typography>
-          </RouterLink>
+
         </Hidden>
         <Hidden lgUp>
           <IconButton

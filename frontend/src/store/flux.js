@@ -3,6 +3,7 @@ const getState = ({ getStore, getActions, setStore }) => {
     store: {
       projects: [{}],
       scopes: [{}],
+      pointsSize: [{}],
       totalPoints: 0,
       capabilities: [{}],
       resources: [
@@ -73,6 +74,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             alert('Fetch error: ', err);
           });
       },
+
       loadScopes: () => {
         /**
 					fetch().then().then(data => setStore({ "foo": data.bar }))
@@ -101,6 +103,37 @@ const getState = ({ getStore, getActions, setStore }) => {
             alert('Fetch error: ', err);
           });
       },
+
+      loadPointsSizes: () => {
+        /**
+					fetch().then().then(data => setStore({ "foo": data.bar }))
+        */
+
+       const store = getStore();
+
+        fetch(
+          'https://bah-pm-dashboard-backend.herokuapp.com/future_capabilities'
+        )
+          .then(response => {
+            if (response.status !== 200) {
+              alert('Connection error, status ' + response.status);
+              console.log(response);
+              return;
+            }
+            response.json().then(data => {
+              console.log(data);
+              
+              
+              console.log(store);
+              setStore({ pointsSize: data.items });
+            });
+          })
+          .catch(err => {
+            alert('Fetch error: ', err);
+          });
+      },
+
+
       loadTotalPoints: () => {
         /**
 					fetch().then().then(data => setStore({ "foo": data.bar }))

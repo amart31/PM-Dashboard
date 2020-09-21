@@ -3,6 +3,7 @@ import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
+
   root: {
     '& .MuiTextField-root': {
       margin: theme.spacing(1),
@@ -18,90 +19,103 @@ export default function OrgChart() {
       <div>
         <TextField
           required
+          size="small"
           id="outlined-required"
           label="Client Name"
-          defaultValue="IRS IT PMO"
+          defaultValue="Client Name"
           variant="outlined"
         />
         <TextField
           required
+          size="small"
           id="outlined-required"
           label="Task Title"
-          defaultValue="ECM"
+          defaultValue="Task Name"
           variant="outlined"
         />
         <TextField
           required
+          size="small"
           id="outlined-required"
           label="Client Contract #"
-          defaultValue="47QTCK18D0004"
+          defaultValue="Contract #"
           variant="outlined"
         />
         <TextField
           required
+          size="small"
           id="outlined-required"
           label="Engagement #"
-          defaultValue="2035H5-20-F-00200"
+          defaultValue="Engagement #"
           variant="outlined"
         />
         <TextField
           required
+          size="small"
           id="outlined-required"
           label="Contract Type"
-          defaultValue="FFP & LH"
+          defaultValue="Contract type"
           variant="outlined"
         />
         <TextField
           required
+          size="small"
           id="outlined-required"
           label="Contract Vehicle"
-          defaultValue="Alliant 2"
+          defaultValue="Vehicle"
           variant="outlined"
         />
         <TextField
           required
+          size="small"
           id="outlined-required"
           label="Total Contract POP"
-          defaultValue="4/16/2020-4/15/2025"
+          defaultValue="Contract POP"
           variant="outlined"
         />
         <TextField
           required
+          size="small"
           id="outlined-required"
           label="Client Name"
-          defaultValue="IRS IT PMO"
+          defaultValue="Client Name"
           variant="outlined"
         />
         <TextField
           required
+          size="small"
           id="outlined-required"
           label="Account"
-          defaultValue="TRS"
+          defaultValue="Account"
           variant="outlined"
         />
         <TextField
           required
+          size="small"
           id="outlined-required"
           label="Market Code"
-          defaultValue="IRS"
+          defaultValue="Code"
           variant="outlined"
         />
         <TextField
           required
+          size="small"
           id="outlined-required"
           label="Client Name"
-          defaultValue="IRS IT PMO"
+          defaultValue="Name"
           variant="outlined"
         />
         <TextField
           required
+          size="small"
           id="outlined-required"
           label="RRF Rating"
-          defaultValue="Medium"
+          defaultValue="Rating"
           variant="outlined"
         />
         <TextField
           required
+          size="small"
           id="outlined-required"
           label="SB Risk Level"
           defaultValue="N/A"
@@ -109,6 +123,7 @@ export default function OrgChart() {
         />
         <TextField
           required
+          size="small"
           id="outlined-required"
           label="Avg CPAR Rating"
           defaultValue="N/A"
@@ -116,6 +131,7 @@ export default function OrgChart() {
         />
         <TextField
           required
+          size="small"
           id="outlined-required"
           label="Recompete OTIS #"
           defaultValue="N/A"
@@ -123,20 +139,23 @@ export default function OrgChart() {
         />
         <TextField
           required
+          size="small"
           id="outlined-required"
           label="Current Period POP"
-          defaultValue="4/16/2020-4/11/2021"
+          defaultValue="Period POP"
           variant="outlined"
         />
         <TextField
           required
+          size="small"
           id="outlined-required"
           label="Contract Role"
-          defaultValue="Prime"
+          defaultValue="Role"
           variant="outlined"
         />
         <TextField
           required
+          size="small"
           id="outlined-required"
           label="Prime (if sub)"
           defaultValue="N/A"
@@ -144,80 +163,91 @@ export default function OrgChart() {
         />
         <TextField
           required
+          size="small"
           id="outlined-required"
           label="Client Name"
-          defaultValue="IRS IT PMO"
+          defaultValue="Name"
           variant="outlined"
         />
         <TextField
           required
+          size="small"
           id="outlined-required"
           label="Client CO"
-          defaultValue="Redmon, Iris"
+          defaultValue="CO"
           variant="outlined"
         />
         <TextField
           required
+          size="small"
           id="outlined-required"
           label="Client COR"
-          defaultValue="Huffman, Kyle; Thomas, Mel"
+          defaultValue="Client COR"
           variant="outlined"
         />
         <TextField
           required
+          size="small"
           id="outlined-required"
           label="BAH Contracts"
-          defaultValue="Ellison, John"
+          defaultValue="BAH Contracts"
           variant="outlined"
         />
         <TextField
           required
+          size="small"
           id="outlined-required"
           label="BAH Subcontracts"
-          defaultValue="Giandelone, Jaci"
+          defaultValue="BAH subcontracts"
           variant="outlined"
         />
         
         <TextField
           required
+          size="small"
           id="outlined-required"
           label="BAH OIC"
-          defaultValue="Ravi, Ram"
+          defaultValue="BAH OIC"
           variant="outlined"
         />
         <TextField
           required
+          size="small"
           id="outlined-required"
           label="BAH VP,Principal"
-          defaultValue="Hutchison, Jon; Kopparapu, Chak"
+          defaultValue="Principal"
           variant="outlined"
         />
         <TextField
           required
+          size="small"
           id="outlined-required"
           label="BAH PM"
-          defaultValue="Hutchison, Jon"
+          defaultValue="BAH PM"
           variant="outlined"
         />
         <TextField
           required
+          size="small"
           id="outlined-required"
           label="BAH IFS Manager"
-          defaultValue="Piner, Earl"
+          defaultValue="BAH IFS Manager"
           variant="outlined"
         />
         <TextField
           required
+          size="small"
           id="outlined-required"
           label="BAH PCO"
-          defaultValue="Ra, Sonia; Tu, Helen"
+          defaultValue="BAH PCO"
           variant="outlined"
         />
         <TextField
           required
+          size="small"
           id="outlined-required"
           label="PMR Presenter"
-          defaultValue="Hutchison, Jon"
+          defaultValue="PMR Presenter"
           variant="outlined"
         />
 

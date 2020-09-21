@@ -86,45 +86,10 @@ function Todo() {
     const [tasks, setTasks] = useState([
         
         {
-            title: 'September delivery is on-track with implementation complete for 25 out of 28 user stories (1 stretch goal and 2 pushed out to next PI due to RPA dependency)',
-            completed: false
-        },
-        {
-            title: 'Production deployment targeted for 8/31. Scheduling a pre-deployment walkthrough with Pega on 8/28 to ensure environment readiness',
-            completed: false
-        },
-        {
-            title: 'Supported troubleshooting performance issues in DEV, DSIT, and SAT environments',
-            completed: false
-        },
-        {
-            title: 'Pega RDA was selected as the RPA tool for R1. Software installed on dev team IRS laptops. Team began implementation',
-            completed: false
-        },
-        {
-            title: 'Integrated Single Sign On (SSO) and SiteMinder integration with Pega platform in lower environments',
-            completed: false
-        },
-        {
-            title: 'Supported developing technical roadmap strategy for ECM platform',
-            completed: false
-        },
-        {
-            title: 'Reviewed technical debt candidates with ES leads for upcoming PI 7 and the approach to flow through the Portfolio process',
-            completed: false
-        },
-        {
-            title: 'Continued to develop System Security Plan in support of platform ATO',
-            completed: false
-        },
-        {
-            title: 'Continued to conduct bi-weekly demos to the UAT, TEGE, and ECMO stakeholders',
-            completed: false
-        },
-        {
-            title: 'Support PI 7 objectives planning and implement a metrics-based approach for capacity planning',
+            title: 'Financial Tasks Daily Overview',
             completed: false
         }
+        
     ]);
 
 
@@ -154,7 +119,7 @@ function Todo() {
         
       >
         <CardHeader
-          title="Technical Tasks"
+          title="Financial Daily Tasks"
         />
         <Divider />
         <CardContent>

@@ -30,6 +30,7 @@ const useStyles = makeStyles(theme => ({
   },
   difference: {
     marginTop: theme.spacing(2),
+    color: theme.palette.success.main,
     display: 'flex',
     alignItems: 'center'
   },

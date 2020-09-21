@@ -14,7 +14,8 @@ import {
   Risks as RisksView,
   Criteria as CriteriaView,
   Scopes as ScopesView,
-  Miscelaneous as MiscelaneousView
+  Miscelaneous as MiscelaneousView,
+  SignIn as SignInView
 
 } from './views';
 
@@ -68,6 +69,12 @@ const Routes = () => {
         exact
         layout={MainLayout}
         path="/extras"
+      />
+      <RouteWithLayout
+        component={SignInView}
+        exact
+        layout={MainLayout}
+        path="/signin"
       />
       <RouteWithLayout
         component={NotFoundView}

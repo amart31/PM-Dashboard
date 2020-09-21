@@ -5,7 +5,7 @@ import { Grid } from '@material-ui/core';
 import {
   ResourceManagement,
   Banner,
-  Tables
+  Tables,
   
 } from './components';
 
@@ -66,13 +66,9 @@ const BurnChart = () => {
           >
             <ResourceManagement />
           </Grid>
-        
-        
-
 
         </Grid>
         
-
 
       </Grid>
     </div>
