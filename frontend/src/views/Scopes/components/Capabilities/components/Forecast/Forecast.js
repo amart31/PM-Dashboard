@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/styles';
@@ -50,11 +50,67 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function Forecast(props) {
+
   const { className, ...rest } = props;
+  const { store } = useContext(Context);
   const classes = useStyles();
+  const [capabilities, setCapabilities] = useState(store.capabilities);
+  console.log(capabilities);
+
   const bull = <span className={classes.bullet}>•</span>;
 
-  
+  useEffect(() => {
+    fetch('https://bah-pm-dashboard-backend.herokuapp.com/capabilities')
+      .then(response => response.json())
+      .then(data => {
+        setCapabilities(data.items);
+        console.log(data.items);
+        console.log(capabilities);
+      })
+  }, []);
+
+
+  const s = capabilities.filter(function(item){
+    if (item.size === 'S') {
+      return true;
+    } else {
+      return false;
+    }
+  }).length;
+
+  const m = capabilities.filter(function(item){
+    if (item.size === 'M') {
+      return true;
+    } else {
+      return false;
+    }
+  }).length;
+
+  const l = capabilities.filter(function(item){
+    if (item.size === 'L') {
+      return true;
+    } else {
+      return false;
+    }
+  }).length;
+
+  const xl = capabilities.filter(function(item){
+    if (item.size === 'XL') {
+      return true;
+    } else {
+      return false;
+    }
+  }).length;
+
+  const xxl = capabilities.filter(function(item){
+    if (item.size === 'XXL') {
+      return true;
+    } else {
+      return false;
+    }
+  }).length;
+
+  console.log(s);
 
   return (
     <Card
@@ -89,7 +145,7 @@ function Forecast(props) {
                 </Typography>
                 <Divider className={classes.divider} />
                 <Typography variant="body1" component="p">
-                  {bull}Capabilities:  24
+                  {bull}Total Capabilities:  {capabilities.length}
                 </Typography>
                 <Typography variant="body1" component="p">
                   {bull}Features:  Not fully created
@@ -116,13 +172,19 @@ function Forecast(props) {
                 </Typography>
                 <Divider className={classes.divider} />
                 <Typography variant="body1" component="p">
-                  {bull}Capabilities:  9
+                  {bull}S Capabilities:  {s}
                 </Typography>
                 <Typography variant="body1" component="p">
-                  {bull}Features:  22
+                  {bull}M Capabilities:  {m}
                 </Typography>
                 <Typography variant="body1" component="p">
-                  {bull}Stories:  2
+                  {bull}L Capabilities:  {l}
+                </Typography>
+                <Typography variant="body1" component="p">
+                  {bull}XL Capabilities:  {xl}
+                </Typography>
+                <Typography variant="body1" component="p">
+                  {bull}XXL Capabilities:  {xxl}
                 </Typography>
                 <Divider className={classes.divider} />
           

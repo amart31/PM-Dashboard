@@ -43,6 +43,10 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
+function refreshPage() {
+  window.location.reload(false);
+}
+
 
 function CapabilititesForm() {
   const classes = useStyles();
@@ -92,9 +96,7 @@ function CapabilititesForm() {
 
   const { store, actions } = useContext(Context);
 
-  function refreshPage() {
-    window.location.reload(false);
-  }
+  
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -230,6 +232,7 @@ function CapabilititesForm() {
               status,
               dependency
             );
+            
           }
           }
           >

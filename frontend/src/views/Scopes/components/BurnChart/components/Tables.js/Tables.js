@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -7,10 +7,15 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import TextField from '@material-ui/core/TextField';
+import Select from '@material-ui/core/Select';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+
+import FormControl from '@material-ui/core/FormControl';
 import Button from '@material-ui/core/Button';
 import injectContext from '../../../../../../store/appContext';
 import { Context } from '../../../../../../store/appContext';
-import MaterialTable from 'material-table';
 
 import { forwardRef } from 'react';
 
@@ -30,27 +35,87 @@ import SaveAlt from '@material-ui/icons/SaveAlt';
 import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
 
-const tableIcons = {
-Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
-Check: forwardRef((props, ref) => <Check {...props} ref={ref} />),
-Clear: forwardRef((props, ref) => <Clear {...props} ref={ref} />),
-Delete: forwardRef((props, ref) => <DeleteOutline {...props} ref={ref} />),
-DetailPanel: forwardRef((props, ref) => <ChevronRight {...props} ref={ref} />),
-Edit: forwardRef((props, ref) => <Edit {...props} ref={ref} />),
-Export: forwardRef((props, ref) => <SaveAlt {...props} ref={ref} />),
-Filter: forwardRef((props, ref) => <FilterList {...props} ref={ref} />),
-FirstPage: forwardRef((props, ref) => <FirstPage {...props} ref={ref} />),
-LastPage: forwardRef((props, ref) => <LastPage {...props} ref={ref} />),
-NextPage: forwardRef((props, ref) => <ChevronRight {...props} ref={ref} />),
-PreviousPage: forwardRef((props, ref) => <ChevronLeft {...props} ref={ref} />),
-ResetSearch: forwardRef((props, ref) => <Clear {...props} ref={ref} />),
-Search: forwardRef((props, ref) => <Search {...props} ref={ref} />),
-SortArrow: forwardRef((props, ref) => <ArrowUpward {...props} ref={ref} />),
-ThirdStateCheck: forwardRef((props, ref) => <Remove {...props} ref={ref} />),
-ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />)
+import PropTypes from 'prop-types';
+import clsx from 'clsx';
+import {  useTheme  } from '@material-ui/core/styles';
+
+import TablePagination from '@material-ui/core/TablePagination';
+import TableFooter from '@material-ui/core/TableFooter';
+import IconButton from '@material-ui/core/IconButton';
+import FirstPageIcon from '@material-ui/icons/FirstPage';
+import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
+import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
+import LastPageIcon from '@material-ui/icons/LastPage';
+
+const useStyles1 = makeStyles((theme) => ({
+  root: {
+    flexShrink: 0,
+    marginLeft: theme.spacing(2.5),
+  },
+}));
+
+function TablePaginationActions(props) {
+  const classes = useStyles1();
+  const theme = useTheme();
+  const { count, page, rowsPerPage, onChangePage } = props;
+
+  const handleFirstPageButtonClick = (event) => {
+    onChangePage(event, 0);
+  };
+
+  const handleBackButtonClick = (event) => {
+    onChangePage(event, page - 1);
+  };
+
+  const handleNextButtonClick = (event) => {
+    onChangePage(event, page + 1);
+  };
+
+  const handleLastPageButtonClick = (event) => {
+    onChangePage(event, Math.max(0, Math.ceil(count / rowsPerPage) - 1));
+  };
+
+  return (
+    <div className={classes.root}>
+      <IconButton
+        onClick={handleFirstPageButtonClick}
+        disabled={page === 0}
+        aria-label="first page"
+      >
+        {theme.direction === 'rtl' ? <LastPageIcon /> : <FirstPageIcon />}
+      </IconButton>
+      <IconButton onClick={handleBackButtonClick} disabled={page === 0} aria-label="previous page">
+        {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
+      </IconButton>
+      <IconButton
+        onClick={handleNextButtonClick}
+        disabled={page >= Math.ceil(count / rowsPerPage) - 1}
+        aria-label="next page"
+      >
+        {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
+      </IconButton>
+      <IconButton
+        onClick={handleLastPageButtonClick}
+        disabled={page >= Math.ceil(count / rowsPerPage) - 1}
+        aria-label="last page"
+      >
+        {theme.direction === 'rtl' ? <FirstPageIcon /> : <LastPageIcon />}
+      </IconButton>
+    </div>
+  );
+}
+
+TablePaginationActions.propTypes = {
+  count: PropTypes.number.isRequired,
+  onChangePage: PropTypes.func.isRequired,
+  page: PropTypes.number.isRequired,
+  rowsPerPage: PropTypes.number.isRequired,
 };
 
+
+
 const useStyles = makeStyles((theme)=>({
+  
   table: {
     minWidth: '80%',
     minHeight: '100%'
@@ -81,9 +146,267 @@ const useStyles = makeStyles((theme)=>({
   differenceValue: {
     color: theme.palette.error.dark,
     marginRight: theme.spacing(1)
+  },
+  root: {},
+  content: {
+    padding: 0
+  },
+  inner: {
+    minWidth: 800
+  },
+  statusContainer: {
+    display: 'flex',
+    alignItems: 'center'
+  },
+  status: {
+    marginRight: theme.spacing(1)
   }
 }));
 
+const statusColors = {
+  'In Development': 'success',
+  'Not Started': 'warning',
+  'Elaboration Complete': 'info',
+  'In Elaboration': 'primary',
+};
+const PointsTable =(props) =>{
+  const classes = useStyles();
+  const { store } = useContext(Context);
+  const { className, ...rest } = props;
+
+  const [points, setPoints] = useState(store.pointsSize);
+
+  const [page, setPage] = React.useState(0);
+  const [rowsPerPage, setRowsPerPage] = React.useState(5);
+
+  const emptyRows = rowsPerPage - Math.min(rowsPerPage, points.length - page * rowsPerPage);
+
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(parseInt(event.target.value, 10));
+    setPage(0);
+  };
+
+  useEffect(() => {
+    fetch('https://bah-pm-dashboard-backend.herokuapp.com/future_capabilities')
+      .then(response => response.json())
+      .then(data => {
+        setPoints(data.items);
+      })
+  }, []);
+
+  return (
+    <TableContainer component={Paper} {...rest}
+      className={clsx(classes.root, className)}>
+      <Table className={classes.table} aria-label="simple table">
+        <TableHead>
+          <TableRow>
+            <TableCell>ID</TableCell>
+            <TableCell >Points</TableCell>
+            <TableCell >Size</TableCell>
+            <TableCell >Points Count</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+
+        {(rowsPerPage > 0
+          ? points.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+          : points
+        ).map((row) => (
+          <TableRow key={row.id}>
+            <TableCell component="th" scope="row">
+              {row.id}
+            </TableCell>
+            <TableCell>
+              {row.points}
+            </TableCell>
+            
+            <TableCell >
+              
+                  {row.size}
+               
+              
+              </TableCell>
+              <TableCell>
+              {row.capabilities_count}
+            </TableCell>
+          </TableRow>
+        ))}
+        {emptyRows > 0 && (
+          <TableRow style={{ height: 53 * emptyRows }}>
+            <TableCell colSpan={6} />
+          </TableRow>
+        )}
+
+          
+        </TableBody>
+        <TableFooter>
+        <TableRow>
+          <TablePagination
+            rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
+            colSpan={3}
+            count={points.length}
+            rowsPerPage={rowsPerPage}
+            page={page}
+            SelectProps={{
+              inputProps: { 'aria-label': 'rows per page' },
+              native: true,
+            }}
+            onChangePage={handleChangePage}
+            onChangeRowsPerPage={handleChangeRowsPerPage}
+            ActionsComponent={TablePaginationActions}
+          />
+        </TableRow>
+      </TableFooter>
+      </Table>
+    </TableContainer>
+  );
+}
+
+PointsTable.propTypes = {
+  className: PropTypes.string
+};
+
+function PointsForm() {
+  const classes = useStyles();
+  const { store, actions } = useContext(Context);
+  const [points, setPoints] = React.useState(store.pointsSize);
+  const [count, setCount] = React.useState('');
+  const [size, setSize] = React.useState('');
+  const [duration, setDuration] = React.useState('');
+  const [status, setStatus] = React.useState('');
+
+  
+
+  const xxxlTotal = points.filter(function(item){
+    if (item.size === 'XXL') {
+      return true;
+    } else {
+      return false;
+    }
+  });
+
+  var xxlTestTotal = xxxlTotal[0];
+
+  var xxlTesting = xxxlTotal[0];
+
+  console.log(xxxlTotal);
+  console.log(xxlTestTotal);
+  console.log(xxlTesting);
+
+
+
+  const mTotal = points.filter(function(item){
+    if (item.size === 'M') {
+      return true;
+    } else {
+      return false;
+    }
+  }).count *2;
+
+  const lTotal = points.filter(function(item){
+    if (item.size === 'L') {
+      return true;
+    } else {
+      return false;
+    }
+  }).count *3;
+
+  const xlTotal = points.filter(function(item){
+    if (item.size === 'XL') {
+      return true;
+    } else {
+      return false;
+    }
+  }).count *5;
+
+  const xxlTotal = points.filter(function(item){
+    if (item.size === 'XXL') {
+      return true;
+    } else {
+      return false;
+    }
+  }).count *8;
+
+  var total4 =   mTotal + lTotal + xlTotal + xxlTotal;
+
+
+  
+
+  useEffect(() => {
+    fetch('https://bah-pm-dashboard-backend.herokuapp.com/future_capabilities')
+      .then(response => response.json())
+      .then(data => {
+        setPoints(data.items);
+      })
+  }, []);
+  
+
+
+  const handleChange = (event) => {
+    setCount(event.target.value);
+   
+  };
+  const handleSize = (event) => {
+    setSize(event.target.value);
+   
+  };
+
+  return (
+    <form className={classes.root} noValidate autoComplete="off">
+      <div>
+        <TextField
+          id="count"
+          label="Count"
+          placeholder="Count"
+          multiline
+          rowsMax={4}
+          value={count}
+          onChange={handleChange}
+        />
+       
+      </div>
+      <div>
+        
+        <FormControl className={classes.formControl}>
+
+          <InputLabel id="size">Size</InputLabel>
+          <Select
+            labelId='statusLabel'
+            id="size"
+            value={size}
+            onChange={handleSize}
+          >
+            <MenuItem value={2}>S</MenuItem>
+            <MenuItem value={3}>M</MenuItem>
+            <MenuItem value={4}>L</MenuItem>
+            <MenuItem value={5}>XL</MenuItem>
+            <MenuItem value={6}>XXL</MenuItem>
+          </Select>
+        </FormControl>
+    
+      </div>
+      <Button variant="contained" color="primary" onClick={() => {
+        actions.updatePoints(count, size);
+        actions.createScope(
+          total4
+        );
+      }}
+      >
+  Submit
+      </Button>
+    </form>
+  );
+}
+
+PointsForm.contextTypes = {
+  projectName: PropTypes.string,
+  resourceName: PropTypes.string,
+  duration: PropTypes.number
+};
 
 
 function createKeyTableData(plannedScope, description) {
@@ -97,141 +420,6 @@ const keyRows = [
 
 ];
 
-
-
-function totalPoints(items) {
-  return items.map(({ pointTotal }) => pointTotal).reduce((sum, i) => sum + i, 0);
-}
-
-
-
-function CustomEditComponent(props) {
-  const { useState } = React;
-
-  const [columns, setColumns] = useState([
-    {
-      title: 'Point Value', field: 'point',
-      editComponent: props => (
-        <input
-          type="number"
-          value={props.value}
-          onChange={e => props.onChange(e.target.value)}
-        />
-      )
-    },
-    { title: 'Size', field: 'size', lookup: { 1: 'S', 2: 'M' , 3: 'L', 5: 'XL', 8: 'XXL' }, editComponent: props => (
-      <input
-        type="text"
-        value={props.value}
-        onChange={e => props.onChange(e.target.value)}
-      />
-    )},
-    { title: 'Total Count', field: 'count', type: 'numeric' },
-    {
-      title: 'Total Points',
-      field: 'total',
-      type: 'numeric'
-    },
-  
-  ]);
-
-  const [data, setData] = useState([
-    { point: 1, size: 1, count: 9, total: 9 },
-    { point: 2, size: 2, count: 10, total: 20 },
-    { point: 3, size: 3, count: 3, total: 9 },
-    { point: 5, size: 5, count: 0, total: 0 },
-    { point: 8, size: 8, count: 3, total: 24 },
-  ]);
-
-  var testS = data[0].count;
-  var testM = data[1].count *2;
-  var testL = data[2].count *3;
-  var testXL = data[3].count *5;
-  var testXXL = data[4].count * 8;
-
-  const [totalTest2, setTotalTest2] = useState(totalPointsTest);
-
-  var totalPointsTest =  testS + testM + testL + testXL + testXXL;
-  console.log(testS);
-  console.log(testM);
-  console.log(testL);
-  console.log(testXL);
-  console.log(testXXL);
-
-  console.log(totalPointsTest);
-  console.log(totalTest2);
-
-  const { store, actions } = useContext(Context);
-
-  return (
-    <div>
-      <MaterialTable
-        title="Custom Edit Component Preview"
-        columns={columns}
-        icons={tableIcons}
-        data={data}
-        editable={{
-          onRowAdd: newData =>
-            new Promise((resolve, reject) => {
-              setTimeout(() => {
-                setData([...data, newData]);
-              
-                resolve();
-              }, 1000)
-            }),
-          onRowUpdate: (newData, oldData) =>
-            new Promise((resolve, reject) => {
-              setTimeout(() => {
-                const dataUpdate = [...data];
-                const index = oldData.tableData.id;
-                dataUpdate[index] = newData;
-                setData([...dataUpdate]);
-                setTotalTest2(dataUpdate);
-                resolve();
-              }, 1000)
-            }),
-          onRowDelete: oldData =>
-            new Promise((resolve, reject) => {
-              setTimeout(() => {
-                const dataDelete = [...data];
-                const index = oldData.tableData.id;
-                dataDelete.splice(index, 1);
-                setData([...dataDelete]);
-                
-                resolve();
-              }, 1000)
-            }),
-        }}
-      />
-      <TableRow>
-            
-        <TableCell colSpan={3}>Total Points</TableCell>
-        <TableCell align="right">{totalPointsTest} points</TableCell>
-      </TableRow>
-      <TableRow>
-            
-      <TableCell colSpan={3}>Total Points in DB</TableCell>
-      <TableCell align="right">{store.totalPoints} points</TableCell>
-    </TableRow>
-      <div>
-        
-        <Button  color="primary" variant="contained" 
-          onClick={() => {
-            actions.createScope(
-              totalPointsTest
-            );
-            
-          }
-          }
-        >
-Submit
-        </Button>
-
-          
-      </div>
-    </div>
-  )
-}
 
 function SimpleTables() {
 
@@ -275,8 +463,11 @@ function SimpleTables() {
 
   return (
     <div>
-      <CustomEditComponent />
-      <br/>
+    <PointsTable />
+    <br/>
+
+    <PointsForm />
+    
 
 
       <br />

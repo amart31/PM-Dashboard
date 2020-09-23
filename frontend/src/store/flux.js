@@ -204,7 +204,9 @@ const getState = ({ getStore, getActions, setStore }) => {
           })
         })
           .then(function(response) {
+            
             return response.json();
+            
           })
           .then(res => {
             fetch(
@@ -220,8 +222,9 @@ const getState = ({ getStore, getActions, setStore }) => {
                 }
                 response.json().then(data => {
                   const store = getStore();
-                  store.products = data;
+                  store.projects = data;
                   setStore({ store });
+                  window.location.reload(false);
                 });
               })
               .catch(err => {
@@ -268,6 +271,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           })
         })
           .then(function(response) {
+            
             return response.json();
           })
           .then(res => {
@@ -286,6 +290,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                   const store = getStore();
                   store.capabilities = data;
                   setStore({ store });
+                  window.location.reload(false);
                 });
               })
               .catch(err => {
@@ -339,6 +344,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                   const store = getStore();
                   store.scopes = data;
                   setStore({ store });
+                  window.location.reload(false);
                 });
               })
               .catch(err => {
@@ -349,7 +355,66 @@ const getState = ({ getStore, getActions, setStore }) => {
           .catch(err => {
             alert('Fetch error: ', err);
           });
-      }
+      },
+
+      updatePoints: (
+     
+        capabilities,
+        size
+        
+      ) => {
+        const store = getStore();
+        const endpoint =
+					'https://bah-pm-dashboard-backend.herokuapp.com/future_capabilities/' + size;
+
+  
+        fetch(endpoint, {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json',
+            accept: 'application/json'
+          },
+          body: JSON.stringify({
+          
+            capabilities_count: capabilities,
+            id: size,
+            
+
+            
+          })
+        })
+          .then(function(response) {
+            
+            return response.json();
+          })
+          .then(res => {
+            fetch(
+              'https://bah-pm-dashboard-backend.herokuapp.com/future_capabilities'
+            )
+              .then(response => {
+                if (response.status !== 200) {
+                  alert(
+                    'Connection error, status ' +
+											response.status
+                  );
+                  return;
+                }
+                response.json().then(data => {
+                  const store = getStore();
+                  store.pointsSize = data;
+                  setStore({ store });
+                  window.location.reload(false);
+                });
+              })
+              .catch(err => {
+                alert('Fetch error: ', err);
+              });
+          })
+
+          .catch(err => {
+            alert('Fetch error: ', err);
+          });
+      },
 
 
     }

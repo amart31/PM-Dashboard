@@ -106,9 +106,9 @@ function ResourceForm() {
             value={status}
             onChange={handleStatus}
           >
-            <MenuItem value={'Working'}>Working</MenuItem>
-            <MenuItem value={'ToDo'}>ToDo</MenuItem>
-            <MenuItem value={'Done'}>Done</MenuItem>
+            <MenuItem value={'Trending Up'}>Trending Up</MenuItem>
+            <MenuItem value={'Steady'}>Steady</MenuItem>
+            <MenuItem value={'Down'}>Down</MenuItem>
           </Select>
         </FormControl>
     
