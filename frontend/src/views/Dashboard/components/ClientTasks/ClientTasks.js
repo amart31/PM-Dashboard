@@ -86,9 +86,21 @@ function Todo() {
     const [tasks, setTasks] = useState([
         
         {
-            title: 'Client Satisfaction Daily Tasks Overview',
+            title: 'The ECM SIS team measures delivery against contractual obligations Most leads maintain daily contact with clients and have robust input on deliverables, activities, and client satisfaction.',
             completed: false
-        }
+        },
+        {
+          title: 'The leadership recently conducted one on one session with all delivery partners and received high satisfaction rating from all of on transition and delivery activities.',
+          completed: false
+      },
+      {
+        title: 'Client satisfaction will be reassessed after the operating model workshops due to the ongoing issues between business and IT.',
+        completed: false
+    },
+    {
+      title: 'The delayed clearance of Pega resources has also had an implication on client satisfaction',
+      completed: false
+  },
         
     ]);
 

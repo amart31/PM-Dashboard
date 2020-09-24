@@ -22,3 +22,5 @@ export { default as FiancialsTable } from './FinancialsTable';
 export { default as ClientTasks } from './ClientTasks';
 export { default as FinancialTasks } from './FinancialTasks';
 export { default as SecurityTasks } from './SecurityTasks';
+
+export { default as ResourcesSummary } from './ResourcesSummary';

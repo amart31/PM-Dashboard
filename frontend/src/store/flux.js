@@ -180,8 +180,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 
       createResource: (
-        duration,
-        projectName,
+        role,
         resourceName,
         status
       ) => {
@@ -197,8 +196,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             accept: 'application/json'
           },
           body: JSON.stringify({
-            duration: duration,
-            projectName: projectName,
+            roles: role,
             resourceName: resourceName,
             status: status,
           })

@@ -32,24 +32,23 @@ function ResourceForm() {
   const classes = useStyles();
   const [projectName, setProjectName] = React.useState('');
   const [resourceName, setResourceName] = React.useState('');
-  const [duration, setDuration] = React.useState('');
+  const [role, setRole] = React.useState('');
   const [status, setStatus] = React.useState('');
   
-
-
-  const handleChange = (event) => {
+  const handleProjectName = (event) => {
     setProjectName(event.target.value);
    
   };
+
   const handleResource = (event) => {
     setResourceName(event.target.value);
    
   };
-  
-  const handleDuration = (event) => {
-    setDuration(event.target.value);
+  const handleRole = (event) => {
+    setRole(event.target.value);
    
   };
+  
   const handleStatus = (event) => {
     setStatus(event.target.value);
    
@@ -59,16 +58,23 @@ function ResourceForm() {
   const { store, actions } = useContext(Context);
   return (
     <form className={classes.root} noValidate autoComplete="off">
+    <div>
+        
+        <FormControl className={classes.formControl}>
+
+          <InputLabel id="projectNameLabel">Project Name</InputLabel>
+          <Select
+            labelId='projectNameLabel'
+            id="projectName"
+            value={projectName}
+            onChange={handleProjectName}
+          >
+            <MenuItem value={'IRS IT PMO'}>IRS IT PMO</MenuItem>
+          </Select>
+        </FormControl>
+    
+      </div>
       <div>
-        <TextField
-          id="projectName"
-          label="Project Name"
-          placeholder="Projects's Name"
-          multiline
-          rowsMax={4}
-          value={projectName}
-          onChange={handleChange}
-        />
         <TextField
           id="resourceName"
           label="Resource Name"
@@ -78,22 +84,28 @@ function ResourceForm() {
           value={resourceName}
           onChange={handleResource}
         />
-       
       </div>
       <div>
-       
-        <TextField
-          id="duration"
-          label="Duration"
-          placeholder="Project's Duration"
-          placeholder="Placeholder"
-          multiline
-          rowsMax={4}
-          value={duration}
-          onChange={handleDuration}
-          
-        />
-       
+        
+        <FormControl className={classes.formControl}>
+
+          <InputLabel id="roleLabel">Role</InputLabel>
+          <Select
+            labelId='roleLabel'
+            id="role"
+            value={role}
+            onChange={handleRole}
+          >
+            <MenuItem value={'Officer In Charge'}>Officer In Charge</MenuItem>
+            <MenuItem value={'Program Manager'}>Program Manager</MenuItem>
+            <MenuItem value={'Deputy Program Manager'}>Deputy Program Manager</MenuItem>
+            <MenuItem value={'Technical Delivery Manager'}>Technical Delivery Manager</MenuItem>
+            <MenuItem value={'Transition Manager'}>Transition Manager</MenuItem>
+            <MenuItem value={'Contacts Administrator'}>Contacts Administrator</MenuItem>
+            <MenuItem value={'Internl PMO Lead'}>Internal PMO</MenuItem>
+          </Select>
+        </FormControl>
+    
       </div>
       <div>
         
@@ -106,16 +118,17 @@ function ResourceForm() {
             value={status}
             onChange={handleStatus}
           >
-            <MenuItem value={'Trending Up'}>Trending Up</MenuItem>
-            <MenuItem value={'Steady'}>Steady</MenuItem>
-            <MenuItem value={'Down'}>Down</MenuItem>
+            <MenuItem value={'Cleared'}>Cleared</MenuItem>
+            <MenuItem value={'Fully Billable'}>Billable</MenuItem>
+            <MenuItem value={'Not Billable'}>Not Billable</MenuItem>
+            <MenuItem value={'Onboarding'}>Cleared</MenuItem>
           </Select>
         </FormControl>
     
       </div>
       <Button variant="contained" color="primary" onClick={() => {
-        actions.createResource(duration,
-          projectName,
+        actions.createResource(
+          role,
           resourceName,
           status);
       }}

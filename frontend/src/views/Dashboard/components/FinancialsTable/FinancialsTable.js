@@ -59,9 +59,8 @@ const ResourceTable =(props) =>{
           <TableRow>
             <TableCell>Project Name</TableCell>
             <TableCell >Resource Name</TableCell>
-            <TableCell >Project ID</TableCell>
+            <TableCell >Role</TableCell>
             <TableCell >Status</TableCell>
-            <TableCell >Duration</TableCell>
             <TableCell >Updated Date</TableCell>
           </TableRow>
         </TableHead>
@@ -72,19 +71,12 @@ const ResourceTable =(props) =>{
                 {row.projectName}
               </TableCell>
               <TableCell >{row.resourceName}</TableCell>
-              <TableCell >{row.id}</TableCell>
+              <TableCell >{row.roles}</TableCell>
               <TableCell >
-                <div className={classes.statusContainer}>
               
-              <StatusBullet
-                className={classes.status}
-                color={statusColors[row.status]}
-                size="sm"
-              />{row.status}
-              </div>
-              
+                {row.status}
+             
               </TableCell>
-              <TableCell >{row.duration} days</TableCell>
               <TableCell >{moment(row.updatedDate).format('MM/DD/YYYY')}</TableCell>
             </TableRow>
           ))}
