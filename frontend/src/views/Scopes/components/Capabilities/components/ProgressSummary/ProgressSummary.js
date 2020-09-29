@@ -54,8 +54,7 @@ const ProgressSumary = props => {
       .then(response => response.json())
       .then(data => {
         setCapabilities(data.items);
-        console.log(data.items);
-        console.log(capabilities);
+      
        
       })
   },[] );
@@ -64,11 +63,7 @@ const ProgressSumary = props => {
   const second = capabilities.filter(status => status.status === 'In Elaboration');
   const third = capabilities.filter(status => status.status === 'In Development');
   const fourth = capabilities.filter(status => status.status === 'Elaboration Complete');
-  console.log(first);
-  console.log(second);
-  console.log(third);
-  console.log(fourth);
-  console.log(capabilities);
+  
 
   const data = {
     datasets: [

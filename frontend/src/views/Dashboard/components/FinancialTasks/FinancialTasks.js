@@ -85,10 +85,30 @@ function Todo() {
     const [tasksRemaining, setTasksRemaining] = useState(0);
     const [tasks, setTasks] = useState([
         
-        {
-            title: 'Financial Tasks Daily Overview',
-            completed: false
-        }
+      {
+        title: 'Identify resource needs and draft Resource Requirement',
+        completed: false
+    },
+    {
+      title: 'Determine Staffing Levels Required and PO',
+      completed: false
+  },
+  {
+    title: 'Review and Submit Deliverables Acceptance Letters',
+    completed: false
+},
+{
+  title: 'Review and Approve ROMs and Estimates',
+  completed: false
+},
+{
+title: 'Integrate BAH and Vendor RM functions',
+completed: false
+},
+{
+title: 'Conduct Weekly Contract Status Meeting',
+completed: false
+}
         
     ]);
 

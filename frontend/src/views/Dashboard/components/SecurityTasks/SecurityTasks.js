@@ -86,9 +86,29 @@ function Todo() {
     const [tasks, setTasks] = useState([
         
         {
-            title: 'Security Tasks Daily Overview',
+            title: 'Manage Program Level Risks and Dependencies',
             completed: false
-        }
+        },
+        {
+          title: 'Mitigate risks working with the EAO and BAH Leadership',
+          completed: false
+      },
+      {
+        title: 'Monitor Project dependencies',
+        completed: false
+    },
+    {
+      title: 'Internal Risk Processes (MWR Socialization, Authorization to Proceed)',
+      completed: false
+  },
+  {
+    title: 'Identify scope for the PMs – Translate contract terms to project scope',
+    completed: false
+},
+{
+  title: 'Integrate cost and schedule',
+  completed: false
+}
         
     ]);
 

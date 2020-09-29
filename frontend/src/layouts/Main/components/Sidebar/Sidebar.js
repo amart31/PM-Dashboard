@@ -62,7 +62,7 @@ const Sidebar = props => {
       icon: <DashboardIcon />
     },
     {
-      title: 'Miscelaneous',
+      title: 'Miscellaneous',
       href: '/extras',
       icon: <DashboardIcon />
     }

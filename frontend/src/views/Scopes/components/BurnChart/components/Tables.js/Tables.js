@@ -17,24 +17,6 @@ import Button from '@material-ui/core/Button';
 import injectContext from '../../../../../../store/appContext';
 import { Context } from '../../../../../../store/appContext';
 
-import { forwardRef } from 'react';
-
-import AddBox from '@material-ui/icons/AddBox';
-import ArrowUpward from '@material-ui/icons/ArrowUpward';
-import Check from '@material-ui/icons/Check';
-import ChevronLeft from '@material-ui/icons/ChevronLeft';
-import ChevronRight from '@material-ui/icons/ChevronRight';
-import Clear from '@material-ui/icons/Clear';
-import DeleteOutline from '@material-ui/icons/DeleteOutline';
-import Edit from '@material-ui/icons/Edit';
-import FilterList from '@material-ui/icons/FilterList';
-import FirstPage from '@material-ui/icons/FirstPage';
-import LastPage from '@material-ui/icons/LastPage';
-import Remove from '@material-ui/icons/Remove';
-import SaveAlt from '@material-ui/icons/SaveAlt';
-import Search from '@material-ui/icons/Search';
-import ViewColumn from '@material-ui/icons/ViewColumn';
-
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import {  useTheme  } from '@material-ui/core/styles';
@@ -112,8 +94,6 @@ TablePaginationActions.propTypes = {
   rowsPerPage: PropTypes.number.isRequired,
 };
 
-
-
 const useStyles = makeStyles((theme)=>({
   
   table: {
@@ -163,15 +143,9 @@ const useStyles = makeStyles((theme)=>({
   }
 }));
 
-const statusColors = {
-  'In Development': 'success',
-  'Not Started': 'warning',
-  'Elaboration Complete': 'info',
-  'In Elaboration': 'primary',
-};
 const PointsTable =(props) =>{
   const classes = useStyles();
-  const { store } = useContext(Context);
+  const { store, actions } = useContext(Context);
   const { className, ...rest } = props;
 
   const [points, setPoints] = useState(store.pointsSize);
@@ -180,6 +154,16 @@ const PointsTable =(props) =>{
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
   const emptyRows = rowsPerPage - Math.min(rowsPerPage, points.length - page * rowsPerPage);
+
+  function getTotal(arr){
+    let sum = 0;
+    for(let i = 0; i < arr.length; i++){
+        sum += (arr[i].capabilities_count * arr[i].points);
+    }
+    console.log('array'  + arr);
+    console.log('sum ' + sum);
+    return sum;
+};
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -190,11 +174,19 @@ const PointsTable =(props) =>{
     setPage(0);
   };
 
+  let total;
+  total = getTotal(points);
+
   useEffect(() => {
     fetch('https://bah-pm-dashboard-backend.herokuapp.com/future_capabilities')
       .then(response => response.json())
       .then(data => {
         setPoints(data.items);
+        
+       
+        console.log('total ' + total);
+        console.log(data.items);
+
       })
   }, []);
 
@@ -208,59 +200,103 @@ const PointsTable =(props) =>{
             <TableCell >Points</TableCell>
             <TableCell >Size</TableCell>
             <TableCell >Points Count</TableCell>
+            <TableCell >Total Points</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
 
-        {(rowsPerPage > 0
-          ? points.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-          : points
-        ).map((row) => (
-          <TableRow key={row.id}>
-            <TableCell component="th" scope="row">
-              {row.id}
-            </TableCell>
-            <TableCell>
-              {row.points}
-            </TableCell>
+          {(rowsPerPage > 0
+            ? points.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+            : points
+          ).map((row) => (
+            <TableRow key={row.id}>
+              <TableCell component="th" scope="row">
+                {row.id}
+              </TableCell>
+              <TableCell>
+                {row.points}
+              </TableCell>
             
-            <TableCell >
+              <TableCell >
               
-                  {row.size}
-               
+                {row.size}              
               
               </TableCell>
               <TableCell>
-              {row.capabilities_count}
+                {row.capabilities_count}
+              </TableCell>
+              {row.size === 'S' &&
+            <TableCell>
+              {row.capabilities_count * 1}
+              
+            </TableCell>
+              }
+              {row.size === 'M' &&
+            <TableCell>
+              {row.capabilities_count * 2}
+              
+            </TableCell>
+              }
+              {row.size === 'L' &&
+            <TableCell>
+              {row.capabilities_count * 3}
+              
+            </TableCell>
+              }
+              {row.size === 'XL' &&
+            <TableCell>
+              {row.capabilities_count * 5}
+              
+            </TableCell>
+              }
+            
+              {row.size === 'XXL' &&
+            <TableCell>
+              {row.capabilities_count * 8}
+            
+            </TableCell>
+              }
+          
+            </TableRow>
+          )
+          )}
+          {emptyRows > 0 && (
+            <TableRow style={{ height: 53 * emptyRows }}>
+              <TableCell colSpan={6} />
+            </TableRow>
+          )}
+
+          <TableRow >
+            <TableCell >
+            Total Points: {total}
+            <Button variant="contained" color="primary" onClick={() => {
+              actions.createScope(total);
+              
+            }}
+            >
+        Submit
+            </Button>
             </TableCell>
           </TableRow>
-        ))}
-        {emptyRows > 0 && (
-          <TableRow style={{ height: 53 * emptyRows }}>
-            <TableCell colSpan={6} />
-          </TableRow>
-        )}
-
-          
         </TableBody>
         <TableFooter>
-        <TableRow>
-          <TablePagination
-            rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
-            colSpan={3}
-            count={points.length}
-            rowsPerPage={rowsPerPage}
-            page={page}
-            SelectProps={{
-              inputProps: { 'aria-label': 'rows per page' },
-              native: true,
-            }}
-            onChangePage={handleChangePage}
-            onChangeRowsPerPage={handleChangeRowsPerPage}
-            ActionsComponent={TablePaginationActions}
-          />
-        </TableRow>
-      </TableFooter>
+          <TableRow>
+            <TablePagination
+              rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
+              colSpan={3}
+              count={points.length}
+              rowsPerPage={rowsPerPage}
+              page={page}
+              SelectProps={{
+                inputProps: { 'aria-label': 'rows per page' },
+                native: true,
+              }}
+              onChangePage={handleChangePage}
+              onChangeRowsPerPage={handleChangeRowsPerPage}
+              ActionsComponent={TablePaginationActions}
+            />
+          </TableRow>
+        </TableFooter>
       </Table>
     </TableContainer>
   );
@@ -273,77 +309,8 @@ PointsTable.propTypes = {
 function PointsForm() {
   const classes = useStyles();
   const { store, actions } = useContext(Context);
-  const [points, setPoints] = React.useState(store.pointsSize);
   const [count, setCount] = React.useState('');
   const [size, setSize] = React.useState('');
-  const [duration, setDuration] = React.useState('');
-  const [status, setStatus] = React.useState('');
-
-  
-
-  const xxxlTotal = points.filter(function(item){
-    if (item.size === 'XXL') {
-      return true;
-    } else {
-      return false;
-    }
-  });
-
-  var xxlTestTotal = xxxlTotal[0];
-
-  var xxlTesting = xxxlTotal[0];
-
-  console.log(xxxlTotal);
-  console.log(xxlTestTotal);
-  console.log(xxlTesting);
-
-
-
-  const mTotal = points.filter(function(item){
-    if (item.size === 'M') {
-      return true;
-    } else {
-      return false;
-    }
-  }).count *2;
-
-  const lTotal = points.filter(function(item){
-    if (item.size === 'L') {
-      return true;
-    } else {
-      return false;
-    }
-  }).count *3;
-
-  const xlTotal = points.filter(function(item){
-    if (item.size === 'XL') {
-      return true;
-    } else {
-      return false;
-    }
-  }).count *5;
-
-  const xxlTotal = points.filter(function(item){
-    if (item.size === 'XXL') {
-      return true;
-    } else {
-      return false;
-    }
-  }).count *8;
-
-  var total4 =   mTotal + lTotal + xlTotal + xxlTotal;
-
-
-  
-
-  useEffect(() => {
-    fetch('https://bah-pm-dashboard-backend.herokuapp.com/future_capabilities')
-      .then(response => response.json())
-      .then(data => {
-        setPoints(data.items);
-      })
-  }, []);
-  
 
 
   const handleChange = (event) => {
@@ -360,7 +327,7 @@ function PointsForm() {
       <div>
         <TextField
           id="count"
-          label="Count"
+          label="New Count"
           placeholder="Count"
           multiline
           rowsMax={4}
@@ -391,9 +358,7 @@ function PointsForm() {
       </div>
       <Button variant="contained" color="primary" onClick={() => {
         actions.updatePoints(count, size);
-        actions.createScope(
-          total4
-        );
+        
       }}
       >
   Submit
@@ -423,56 +388,18 @@ const keyRows = [
 
 function SimpleTables() {
 
-  const { useState } = React;
-
 
   const classes = useStyles();
-  const [anchorEl, setAnchorEl] = React.useState(null);
-
-
-  const [points, setPoints] = React.useState('');
-
-  const handleCount = (event) => {
-    setPoints(event.target.value);
-    event.preventDefault();
-   
-  };
-
-  const handlePoints = (event) => {
-    setPoints(event.target.value);
-    event.preventDefault();
-   
-  };
   
-  function refreshPage() {
-    window.location.reload(false);
-  }
-
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
-  const open = Boolean(anchorEl);
-  const id = open ? 'simple-popover' : undefined;
-
-  const { store, actions } = useContext(Context);
 
   return (
     <div>
-    <PointsTable />
-    <br/>
+      <PointsTable />
+      <br/>
 
-    <PointsForm />
-    
-
+      <PointsForm />
 
       <br />
-
-      
 
       <br/>
 
