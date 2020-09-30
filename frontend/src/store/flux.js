@@ -182,6 +182,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       createResource: (
         role,
         resourceName,
+        projectName,
         status
       ) => {
         const store = getStore();
@@ -198,6 +199,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           body: JSON.stringify({
             roles: role,
             resourceName: resourceName,
+            projectName: projectName,
             status: status,
           })
         })

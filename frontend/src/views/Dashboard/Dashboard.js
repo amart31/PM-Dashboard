@@ -33,6 +33,9 @@ import {
 
 import { Context } from '../../store/appContext';
 
+import TableauChart from '../Financials/components/FinancialsTableau/FiancialsTableau';
+import TableauChart2 from '../Financials/components/TableauBudget/TableauBudget';
+
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -132,6 +135,8 @@ export default function Dashboard() {
       </TabPanel>
       <TabPanel value={value} index={6}>
       <FinancialTasks />
+      <TableauChart />
+      <TableauChart2 />
       </TabPanel>
     </div>
   );

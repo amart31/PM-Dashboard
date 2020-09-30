@@ -54,8 +54,6 @@ const ResourcesSumary = props => {
       .then(response => response.json())
       .then(data => {
         setCapabilities(data.items);
-        console.log(data.items);
-        console.log(capabilities);
        
       })
   },[] );
@@ -64,10 +62,6 @@ const ResourcesSumary = props => {
   const notBillable = capabilities.filter(status => status.status === 'Not Billable');
   const billable = capabilities.filter(status => status.status === 'Fully Billable');
   const onboarding = capabilities.filter(status => status.status === 'Onboarding');
-  console.log(cleared);
-  console.log(notBillable);
-  console.log(billable);
-  console.log(onboarding);
 
   const data = {
     datasets: [

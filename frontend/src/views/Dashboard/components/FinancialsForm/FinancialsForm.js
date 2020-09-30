@@ -121,7 +121,7 @@ function ResourceForm() {
             <MenuItem value={'Cleared'}>Cleared</MenuItem>
             <MenuItem value={'Fully Billable'}>Billable</MenuItem>
             <MenuItem value={'Not Billable'}>Not Billable</MenuItem>
-            <MenuItem value={'Onboarding'}>Cleared</MenuItem>
+            <MenuItem value={'Onboarding'}>Onboarding</MenuItem>
           </Select>
         </FormControl>
     
@@ -130,6 +130,7 @@ function ResourceForm() {
         actions.createResource(
           role,
           resourceName,
+          projectName,
           status);
       }}
       >

@@ -7,6 +7,8 @@ import {
   TableauBudget
 } from './components';
 
+import FinancialTasks from '../Dashboard/components/FinancialTasks/FinancialTasks';
+
 const useStyles = makeStyles(theme => ({
   root: {
     padding: theme.spacing(1)
@@ -23,20 +25,26 @@ const Capabilities = () => {
         container
       >
        
-        
+      <Grid
+      item
+      
+      xs={12}
+    >
+    <FinancialTasks/>
+    </Grid>
       
 
         <Grid
           item
           
-          xs={12}
+          xs={6}
         >
         <FinancialsTableau />
         </Grid>
 
         <Grid
           item
-          xs={12}
+          xs={6}
         >
         <TableauBudget />
         </Grid>
