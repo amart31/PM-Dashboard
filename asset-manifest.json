@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/PM-Dashboard/static/css/main.fec45a73.chunk.css",
-    "main.js": "/PM-Dashboard/static/js/main.246b2e4e.chunk.js",
-    "main.js.map": "/PM-Dashboard/static/js/main.246b2e4e.chunk.js.map",
+    "main.js": "/PM-Dashboard/static/js/main.d7e4e8d6.chunk.js",
+    "main.js.map": "/PM-Dashboard/static/js/main.d7e4e8d6.chunk.js.map",
     "runtime-main.js": "/PM-Dashboard/static/js/runtime-main.4d4bb08c.js",
     "runtime-main.js.map": "/PM-Dashboard/static/js/runtime-main.4d4bb08c.js.map",
     "static/css/2.18fb2ca0.chunk.css": "/PM-Dashboard/static/css/2.18fb2ca0.chunk.css",
     "static/js/2.a36b215e.chunk.js": "/PM-Dashboard/static/js/2.a36b215e.chunk.js",
     "static/js/2.a36b215e.chunk.js.map": "/PM-Dashboard/static/js/2.a36b215e.chunk.js.map",
     "index.html": "/PM-Dashboard/index.html",
-    "precache-manifest.784a6f65fc9ddb1ae3dbb6f70d12fd1a.js": "/PM-Dashboard/precache-manifest.784a6f65fc9ddb1ae3dbb6f70d12fd1a.js",
+    "precache-manifest.64484f439fef1b3c26625b4a7eb09840.js": "/PM-Dashboard/precache-manifest.64484f439fef1b3c26625b4a7eb09840.js",
     "service-worker.js": "/PM-Dashboard/service-worker.js",
     "static/css/2.18fb2ca0.chunk.css.map": "/PM-Dashboard/static/css/2.18fb2ca0.chunk.css.map",
     "static/css/main.fec45a73.chunk.css.map": "/PM-Dashboard/static/css/main.fec45a73.chunk.css.map",
@@ -20,6 +20,6 @@
     "static/css/2.18fb2ca0.chunk.css",
     "static/js/2.a36b215e.chunk.js",
     "static/css/main.fec45a73.chunk.css",
-    "static/js/main.246b2e4e.chunk.js"
+    "static/js/main.d7e4e8d6.chunk.js"
   ]
 }
