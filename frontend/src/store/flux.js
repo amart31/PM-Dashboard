@@ -224,7 +224,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                   const store = getStore();
                   store.projects = data;
                   setStore({ store });
-                  window.location.reload(false);
+                  
                 });
               })
               .catch(err => {
@@ -290,7 +290,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                   const store = getStore();
                   store.capabilities = data;
                   setStore({ store });
-                  window.location.reload(false);
+                  
                 });
               })
               .catch(err => {
@@ -344,7 +344,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                   const store = getStore();
                   store.scopes = data;
                   setStore({ store });
-                  window.location.reload(false);
+                  
                 });
               })
               .catch(err => {
@@ -403,7 +403,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                   const store = getStore();
                   store.pointsSize = data;
                   setStore({ store });
-                  window.location.reload(false);
+                 
                 });
               })
               .catch(err => {

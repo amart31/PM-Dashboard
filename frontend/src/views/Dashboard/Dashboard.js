@@ -121,6 +121,7 @@ export default function Dashboard() {
       <ResourcesTasks />
       <br/> 
       <FinancialsForm />
+      <br/>
       <ResourcesSummary />
       <br/>
       <FiancialsTable />

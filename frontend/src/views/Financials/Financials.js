@@ -37,14 +37,14 @@ const Capabilities = () => {
         <Grid
           item
           
-          xs={6}
+          xs={12}
         >
         <FinancialsTableau />
         </Grid>
 
         <Grid
           item
-          xs={6}
+          xs={12}
         >
         <TableauBudget />
         </Grid>

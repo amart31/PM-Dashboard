@@ -269,6 +269,8 @@ const PointsTable =(props) =>{
           <TableRow >
             <TableCell >
             Total Points: {total}
+            &nbsp;
+            &nbsp;
             <Button variant="contained" color="primary" onClick={() => {
               actions.createScope(total);
               
