@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-
+import Popover from '@material-ui/core/Popover';
 import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -34,6 +34,7 @@ function ResourceForm() {
   const [resourceName, setResourceName] = React.useState('');
   const [role, setRole] = React.useState('');
   const [status, setStatus] = React.useState('');
+  const [anchorEl, setAnchorEl] = React.useState(null);
   
   const handleProjectName = (event) => {
     setProjectName(event.target.value);
@@ -54,9 +55,37 @@ function ResourceForm() {
    
   };
 
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+  const open = Boolean(anchorEl);
+  const id = open ? 'simple-popover' : undefined;
+
 
   const { store, actions } = useContext(Context);
   return (
+    <div>
+      <Button aria-describedby={id} variant="contained" color="primary" onClick={handleClick}>
+        Add Resource
+      </Button>
+      <Popover
+        id={id}
+        open={open}
+        anchorEl={anchorEl}
+        onClose={handleClose}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'center',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'center',
+        }}
+      >
     <form className={classes.root} noValidate autoComplete="off">
     <div>
         
@@ -137,7 +166,10 @@ function ResourceForm() {
       >
   Submit
       </Button>
+     
     </form>
+    </Popover>
+    </div>
   );
 }
 

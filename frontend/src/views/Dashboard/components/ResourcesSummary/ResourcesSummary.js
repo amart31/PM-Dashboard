@@ -66,8 +66,9 @@ const ResourcesSumary = props => {
   const data = {
     datasets: [
       {
-        data: [cleared.length, notBillable.length, billable.length, onboarding.length],
+        data: [capabilities.length,cleared.length, notBillable.length, billable.length, onboarding.length],
         backgroundColor: [
+          theme.palette.primary.main,
           theme.palette.primary.main,
           theme.palette.error.main,
           theme.palette.warning.main,
@@ -78,7 +79,7 @@ const ResourcesSumary = props => {
         hoverBorderColor: theme.palette.white
       }
     ],
-    labels: ['Cleared', 'Not Billable', 'Billable', 'Onboarding']
+    labels: ['Total Resources','Cleared', 'Not Billable', 'Billable', 'Onboarding']
   };
 
   const options = {
@@ -104,6 +105,12 @@ const ResourcesSumary = props => {
   };
 
   const devices = [
+    {
+      title: 'Total Resources',
+      value: capabilities.length,
+      icon: <WorkIcon />,
+      color: theme.palette.primary.main
+    },
     {
       title: 'Cleared',
       value: cleared.length,
@@ -141,7 +148,7 @@ const ResourcesSumary = props => {
             <RefreshIcon />
           </IconButton>
         }
-        title="Progress Summary"
+        title="Resources Summary"
       />
       <Divider />
       <CardContent>

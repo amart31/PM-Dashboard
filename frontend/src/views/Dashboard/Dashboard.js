@@ -118,14 +118,15 @@ export default function Dashboard() {
       <TechnicalTasks />
       </TabPanel>
       <TabPanel value={value} index={3}>
-      <ResourcesTasks />
-      <br/> 
-      <FinancialsForm />
-      <br/>
       <ResourcesSummary />
       <br/>
       <FiancialsTable />
       <br/>
+      <FinancialsForm />
+      <br/>
+      <ResourcesTasks />
+      <br/> 
+      
          
       </TabPanel>
       <TabPanel value={value} index={4}>

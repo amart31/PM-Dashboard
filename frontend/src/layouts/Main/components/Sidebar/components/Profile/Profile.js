@@ -29,7 +29,7 @@ const Profile = props => {
   const user = {
     name: 'IRS ECM SIS',
     avatar: '/images/logos/bah.png',
-    bio: 'Operations Manual'
+    bio: 'Dashboard'
   };
 
   return (
