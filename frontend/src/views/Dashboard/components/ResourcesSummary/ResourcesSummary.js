@@ -60,7 +60,7 @@ const ResourcesSumary = props => {
 
   const cleared = capabilities.filter(status => status.status === 'Cleared');
   const notBillable = capabilities.filter(status => status.status === 'Not Billable');
-  const billable = capabilities.filter(status => status.status === 'Fully Billable');
+  const billable = capabilities.filter(status => status.status === 'Billable');
   const onboarding = capabilities.filter(status => status.status === 'Onboarding');
 
   const data = {
@@ -78,7 +78,7 @@ const ResourcesSumary = props => {
         hoverBorderColor: theme.palette.white
       }
     ],
-    labels: ['Cleared', 'Not Billable', 'Fully Billable', 'Onboarding']
+    labels: ['Cleared', 'Not Billable', 'Billable', 'Onboarding']
   };
 
   const options = {
@@ -117,7 +117,7 @@ const ResourcesSumary = props => {
       color: theme.palette.error.main
     },
     {
-      title: 'Fully Billable',
+      title: 'Billable',
       value: billable.length,
       icon: <AssignmentTurnedInIcon />,
       color: theme.palette.warning.main

@@ -69,7 +69,7 @@ function ResourceForm() {
             value={projectName}
             onChange={handleProjectName}
           >
-            <MenuItem value={'IRS IT PMO'}>IRS IT PMO</MenuItem>
+            <MenuItem value={'ECM SIS'}>ECM SIS</MenuItem>
           </Select>
         </FormControl>
     
@@ -102,7 +102,8 @@ function ResourceForm() {
             <MenuItem value={'Technical Delivery Manager'}>Technical Delivery Manager</MenuItem>
             <MenuItem value={'Transition Manager'}>Transition Manager</MenuItem>
             <MenuItem value={'Contacts Administrator'}>Contacts Administrator</MenuItem>
-            <MenuItem value={'Internl PMO Lead'}>Internal PMO</MenuItem>
+            <MenuItem value={'Internl PMO Lead'}>Internal PMO Lead</MenuItem>
+            <MenuItem value={'PMO Support'}>PMO Support</MenuItem>
           </Select>
         </FormControl>
     
@@ -119,7 +120,7 @@ function ResourceForm() {
             onChange={handleStatus}
           >
             <MenuItem value={'Cleared'}>Cleared</MenuItem>
-            <MenuItem value={'Fully Billable'}>Billable</MenuItem>
+            <MenuItem value={'Billable'}>Billable</MenuItem>
             <MenuItem value={'Not Billable'}>Not Billable</MenuItem>
             <MenuItem value={'Onboarding'}>Onboarding</MenuItem>
           </Select>
