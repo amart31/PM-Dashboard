@@ -58,6 +58,7 @@ const ResourceTable =(props) =>{
         <TableHead>
           <TableRow>
             <TableCell>Project Name</TableCell>
+            <TableCell>Resource ID</TableCell>
             <TableCell >Resource Name</TableCell>
             <TableCell >Role</TableCell>
             <TableCell >Status</TableCell>
@@ -70,6 +71,7 @@ const ResourceTable =(props) =>{
               <TableCell component="th" scope="row">
                 {row.projectName}
               </TableCell>
+              <TableCell >{row.id}</TableCell>
               <TableCell >{row.resourceName}</TableCell>
               <TableCell >{row.roles}</TableCell>
               <TableCell >

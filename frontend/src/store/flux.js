@@ -417,6 +417,72 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
 
 
+      updateResources: (
+     
+        name,
+        projectName,
+        status,
+        role,
+        resourceID
+        
+      ) => {
+        const store = getStore();
+        const endpoint =
+					'https://bah-pm-dashboard-backend.herokuapp.com/resources/' + resourceID;
+
+  
+        fetch(endpoint, {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json',
+            accept: 'application/json'
+          },
+          body: JSON.stringify({
+          
+            resourceName: name,
+            id: resourceID,
+            projectName: projectName,
+            status: status,
+            roles: role,
+            
+
+            
+          })
+        })
+          .then(function(response) {
+            
+            return response.json();
+          })
+          .then(res => {
+            fetch(
+              'https://bah-pm-dashboard-backend.herokuapp.com/resources'
+            )
+              .then(response => {
+                if (response.status !== 200) {
+                  alert(
+                    'Connection error, status ' +
+											response.status
+                  );
+                  return;
+                }
+                response.json().then(data => {
+                  const store = getStore();
+                  store.pointsSize = data;
+                  setStore({ store });
+                 
+                });
+              })
+              .catch(err => {
+                alert('Fetch error: ', err);
+              });
+          })
+
+          .catch(err => {
+            alert('Fetch error: ', err);
+          });
+      },
+
+
     }
   };
 };

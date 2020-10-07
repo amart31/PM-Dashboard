@@ -33,11 +33,17 @@ function ResourceForm() {
   const [projectName, setProjectName] = React.useState('');
   const [resourceName, setResourceName] = React.useState('');
   const [role, setRole] = React.useState('');
+  const [resourceID, setResourceID] = React.useState('');
   const [status, setStatus] = React.useState('');
   const [anchorEl, setAnchorEl] = React.useState(null);
   
   const handleProjectName = (event) => {
     setProjectName(event.target.value);
+   
+  };
+
+  const handleResourceID = (event) => {
+    setResourceID(event.target.value);
    
   };
 
@@ -68,6 +74,8 @@ function ResourceForm() {
 
   const { store, actions } = useContext(Context);
   return (
+    <div>
+
     <div>
       <Button aria-describedby={id} variant="contained" color="primary" onClick={handleClick}>
         Add Resource
@@ -170,13 +178,138 @@ function ResourceForm() {
     </form>
     </Popover>
     </div>
+
+    <br/>
+
+    <div>
+      <Button aria-describedby={id} variant="contained" color="primary" onClick={handleClick}>
+        Modify Resource
+      </Button>
+      <Popover
+        id={id}
+        open={open}
+        anchorEl={anchorEl}
+        onClose={handleClose}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'center',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'center',
+        }}
+      >
+    <form className={classes.root} noValidate autoComplete="off">
+    <div>
+        
+        
+
+        <div>
+        <TextField
+          id="resourceID"
+          label="Resource ID"
+          placeholder="Resource's ID"
+          multiline
+          rowsMax={4}
+          value={resourceID}
+          onChange={handleResourceID}
+        />
+      </div>
+      <br/>
+      <FormControl className={classes.formControl}>
+          <InputLabel id="projectNameLabel">Project Name</InputLabel>
+          <Select
+            labelId='projectNameLabel'
+            id="projectName"
+            value={projectName}
+            onChange={handleProjectName}
+          >
+            <MenuItem value={'ECM SIS'}>ECM SIS</MenuItem>
+          </Select>
+        </FormControl>
+    
+      </div>
+      <div>
+        <TextField
+          id="resourceName"
+          label="Resource Name"
+          placeholder="Resource's Name"
+          multiline
+          rowsMax={4}
+          value={resourceName}
+          onChange={handleResource}
+        />
+      </div>
+      <div>
+        
+        <FormControl className={classes.formControl}>
+
+          <InputLabel id="roleLabel">Role</InputLabel>
+          <Select
+            labelId='roleLabel'
+            id="role"
+            value={role}
+            onChange={handleRole}
+          >
+            <MenuItem value={'Officer In Charge'}>Officer In Charge</MenuItem>
+            <MenuItem value={'Program Manager'}>Program Manager</MenuItem>
+            <MenuItem value={'Deputy Program Manager'}>Deputy Program Manager</MenuItem>
+            <MenuItem value={'Technical Delivery Manager'}>Technical Delivery Manager</MenuItem>
+            <MenuItem value={'Transition Manager'}>Transition Manager</MenuItem>
+            <MenuItem value={'Contacts Administrator'}>Contacts Administrator</MenuItem>
+            <MenuItem value={'Internl PMO Lead'}>Internal PMO Lead</MenuItem>
+            <MenuItem value={'PMO Support'}>PMO Support</MenuItem>
+          </Select>
+        </FormControl>
+    
+      </div>
+      <div>
+        
+        <FormControl className={classes.formControl}>
+
+          <InputLabel id="statusLabel">Status</InputLabel>
+          <Select
+            labelId='statusLabel'
+            id="status"
+            value={status}
+            onChange={handleStatus}
+          >
+            <MenuItem value={'Cleared'}>Cleared</MenuItem>
+            <MenuItem value={'Billable'}>Billable</MenuItem>
+            <MenuItem value={'Not Billable'}>Not Billable</MenuItem>
+            <MenuItem value={'Onboarding'}>Onboarding</MenuItem>
+          </Select>
+        </FormControl>
+    
+      </div>
+      <Button variant="contained" color="primary" onClick={() => {
+        actions.updateResources(
+          role,
+          resourceName,
+          projectName,
+          status,
+          resourceID);
+      }}
+      >
+  Submit
+      </Button>
+     
+    </form>
+    </Popover>
+    </div>
+    
+    
+    
+    </div>
   );
 }
 
 ResourceForm.contextTypes = {
   projectName: PropTypes.string,
   resourceName: PropTypes.string,
-  duration: PropTypes.number
+  role: PropTypes.string,
+  status: PropTypes.string,
+  resourceID: PropTypes.number
 };
 
 export default injectContext(ResourceForm);
