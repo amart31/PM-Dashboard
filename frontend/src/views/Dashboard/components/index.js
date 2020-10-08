@@ -24,3 +24,5 @@ export { default as FinancialTasks } from './FinancialTasks';
 export { default as SecurityTasks } from './SecurityTasks';
 
 export { default as ResourcesSummary } from './ResourcesSummary';
+
+export { default as ModifyFinancialForm } from './ModifyFinancialForm';

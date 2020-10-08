@@ -418,12 +418,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 
       updateResources: (
-     
-        name,
+        resourceID,
         projectName,
-        status,
+        name,
         role,
-        resourceID
+        status
         
       ) => {
         const store = getStore();
@@ -438,12 +437,12 @@ const getState = ({ getStore, getActions, setStore }) => {
             accept: 'application/json'
           },
           body: JSON.stringify({
-          
-            resourceName: name,
             id: resourceID,
             projectName: projectName,
-            status: status,
+            resourceName: name,
             roles: role,
+            status: status,
+            
             
 
             

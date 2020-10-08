@@ -33,11 +33,17 @@ function ResourceForm() {
   const [projectName, setProjectName] = React.useState('');
   const [resourceName, setResourceName] = React.useState('');
   const [role, setRole] = React.useState('');
+  const [resourceID, setResourceID] = React.useState('');
   const [status, setStatus] = React.useState('');
   const [anchorEl, setAnchorEl] = React.useState(null);
   
   const handleProjectName = (event) => {
     setProjectName(event.target.value);
+   
+  };
+
+  const handleResourceID = (event) => {
+    setResourceID(event.target.value);
    
   };
 
@@ -67,11 +73,13 @@ function ResourceForm() {
 
   const { store, actions } = useContext(Context);
   return (
-    <div>
+   
 
-    
+   
+
+    <div>
       <Button aria-describedby={id} variant="contained" color="primary" onClick={handleClick}>
-        Add Resource
+        Modify Resource
       </Button>
       <Popover
         id={id}
@@ -90,8 +98,21 @@ function ResourceForm() {
     <form className={classes.root} noValidate autoComplete="off">
     <div>
         
-        <FormControl className={classes.formControl}>
+        
 
+        <div>
+        <TextField
+          id="resourceID"
+          label="Resource ID"
+          placeholder="Resource's ID"
+          multiline
+          rowsMax={4}
+          value={resourceID}
+          onChange={handleResourceID}
+        />
+      </div>
+      <br/>
+      <FormControl className={classes.formControl}>
           <InputLabel id="projectNameLabel">Project Name</InputLabel>
           <Select
             labelId='projectNameLabel'
@@ -158,11 +179,13 @@ function ResourceForm() {
     
       </div>
       <Button variant="contained" color="primary" onClick={() => {
-        actions.createResource(
-          role,
-          resourceName,
+        actions.updateResources(
+          resourceID,
           projectName,
-          status);
+          resourceName,
+          role,
+          status
+          );
       }}
       >
   Submit
@@ -171,10 +194,8 @@ function ResourceForm() {
     </form>
     </Popover>
     </div>
+    
 
-   
-    
-    
   );
 }
 

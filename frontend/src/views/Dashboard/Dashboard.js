@@ -28,7 +28,8 @@ import {
   FinancialTasks,
   SecurityTasks,
   FinancialsForm,
-  ResourcesSummary
+  ResourcesSummary,
+  ModifyFinancialForm
 } from './components';
 
 import { Context } from '../../store/appContext';
@@ -123,6 +124,8 @@ export default function Dashboard() {
       <FiancialsTable />
       <br/>
       <FinancialsForm />
+      <br/>
+      <ModifyFinancialForm />
       <br/>
       <ResourcesTasks />
       <br/> 
