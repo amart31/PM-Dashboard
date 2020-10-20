@@ -25,7 +25,7 @@ const Routes = () => {
         component={DashboardView}
         exact
         layout={MainLayout}
-        path="/dashboard"
+        path="/"
       />
       <RouteWithLayout
         component={CapabilitiesView}
@@ -73,7 +73,7 @@ const Routes = () => {
         component={SignInView}
         exact
         layout={MainLayout}
-        path="/"
+        path="/signin"
       />
       <RouteWithLayout
         component={NotFoundView}
@@ -81,7 +81,7 @@ const Routes = () => {
         layout={MinimalLayout}
         path="/not-found"
       />
-      <Redirect to="/dashboard" />
+      <Redirect to="/" />
     </Switch>
   );
 };
