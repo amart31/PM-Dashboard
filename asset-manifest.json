@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/PM-Dashboard/signin/static/css/main.fec45a73.chunk.css",
-    "main.js": "/PM-Dashboard/signin/static/js/main.0d7dcd8e.chunk.js",
-    "main.js.map": "/PM-Dashboard/signin/static/js/main.0d7dcd8e.chunk.js.map",
-    "runtime-main.js": "/PM-Dashboard/signin/static/js/runtime-main.e6013d10.js",
-    "runtime-main.js.map": "/PM-Dashboard/signin/static/js/runtime-main.e6013d10.js.map",
-    "static/css/2.18fb2ca0.chunk.css": "/PM-Dashboard/signin/static/css/2.18fb2ca0.chunk.css",
-    "static/js/2.e1b81bb1.chunk.js": "/PM-Dashboard/signin/static/js/2.e1b81bb1.chunk.js",
-    "static/js/2.e1b81bb1.chunk.js.map": "/PM-Dashboard/signin/static/js/2.e1b81bb1.chunk.js.map",
-    "index.html": "/PM-Dashboard/signin/index.html",
-    "precache-manifest.8806f8293dd0c79bd10c0a618ea94961.js": "/PM-Dashboard/signin/precache-manifest.8806f8293dd0c79bd10c0a618ea94961.js",
-    "service-worker.js": "/PM-Dashboard/signin/service-worker.js",
-    "static/css/2.18fb2ca0.chunk.css.map": "/PM-Dashboard/signin/static/css/2.18fb2ca0.chunk.css.map",
-    "static/css/main.fec45a73.chunk.css.map": "/PM-Dashboard/signin/static/css/main.fec45a73.chunk.css.map",
-    "static/js/2.e1b81bb1.chunk.js.LICENSE.txt": "/PM-Dashboard/signin/static/js/2.e1b81bb1.chunk.js.LICENSE.txt"
+    "main.css": "/PM-Dashboard/static/css/main.fec45a73.chunk.css",
+    "main.js": "/PM-Dashboard/static/js/main.1fce1e91.chunk.js",
+    "main.js.map": "/PM-Dashboard/static/js/main.1fce1e91.chunk.js.map",
+    "runtime-main.js": "/PM-Dashboard/static/js/runtime-main.4d4bb08c.js",
+    "runtime-main.js.map": "/PM-Dashboard/static/js/runtime-main.4d4bb08c.js.map",
+    "static/css/2.18fb2ca0.chunk.css": "/PM-Dashboard/static/css/2.18fb2ca0.chunk.css",
+    "static/js/2.586fcacb.chunk.js": "/PM-Dashboard/static/js/2.586fcacb.chunk.js",
+    "static/js/2.586fcacb.chunk.js.map": "/PM-Dashboard/static/js/2.586fcacb.chunk.js.map",
+    "index.html": "/PM-Dashboard/index.html",
+    "precache-manifest.8fdd3a5259e24cf37bb5652905d880b3.js": "/PM-Dashboard/precache-manifest.8fdd3a5259e24cf37bb5652905d880b3.js",
+    "service-worker.js": "/PM-Dashboard/service-worker.js",
+    "static/css/2.18fb2ca0.chunk.css.map": "/PM-Dashboard/static/css/2.18fb2ca0.chunk.css.map",
+    "static/css/main.fec45a73.chunk.css.map": "/PM-Dashboard/static/css/main.fec45a73.chunk.css.map",
+    "static/js/2.586fcacb.chunk.js.LICENSE.txt": "/PM-Dashboard/static/js/2.586fcacb.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.e6013d10.js",
+    "static/js/runtime-main.4d4bb08c.js",
     "static/css/2.18fb2ca0.chunk.css",
-    "static/js/2.e1b81bb1.chunk.js",
+    "static/js/2.586fcacb.chunk.js",
     "static/css/main.fec45a73.chunk.css",
-    "static/js/main.0d7dcd8e.chunk.js"
+    "static/js/main.1fce1e91.chunk.js"
   ]
 }
