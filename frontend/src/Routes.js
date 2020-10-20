@@ -12,7 +12,6 @@ import {
   Capabilities as CapabilitiesView,
   Deliveries as DeliveriesView,
   Risks as RisksView,
-  Criteria as CriteriaView,
   Scopes as ScopesView,
   Miscelaneous as MiscelaneousView,
   SignIn as SignInView
@@ -26,7 +25,7 @@ const Routes = () => {
         component={DashboardView}
         exact
         layout={MainLayout}
-        path="/"
+        path="/dashboard"
       />
       <RouteWithLayout
         component={CapabilitiesView}
@@ -74,7 +73,7 @@ const Routes = () => {
         component={SignInView}
         exact
         layout={MainLayout}
-        path="/signin"
+        path="/"
       />
       <RouteWithLayout
         component={NotFoundView}
@@ -82,7 +81,7 @@ const Routes = () => {
         layout={MinimalLayout}
         path="/not-found"
       />
-      <Redirect to="/" />
+      <Redirect to="/dashboard" />
     </Switch>
   );
 };

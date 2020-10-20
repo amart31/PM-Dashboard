@@ -60,7 +60,7 @@ const useStyles = makeStyles(theme => ({
     flexBasis: '600px'
   },
   quoteText: {
-    color: theme.palette.white,
+    color: theme.palette.primary,
     fontWeight: 300
   },
   name: {
@@ -171,8 +171,7 @@ const SignIn = props => {
   };
 
   const handleSignIn = event => {
-    event.preventDefault();
-    history.push('/');
+    history.push('/dashboard');
   };
 
   const hasError = field =>
@@ -195,23 +194,9 @@ const SignIn = props => {
                 className={classes.quoteText}
                 variant="h1"
               >
-                Hella narwhal Cosby sweater McSweeney's, salvia kitsch before
-                they sold out High Life.
+                Hello Welcome to BAH Dashboard Sign In Page.
               </Typography>
-              <div className={classes.person}>
-                <Typography
-                  className={classes.name}
-                  variant="body1"
-                >
-                  Takamaru Ayako
-                </Typography>
-                <Typography
-                  className={classes.bio}
-                  variant="body2"
-                >
-                  Manager at inVision
-                </Typography>
-              </div>
+             
             </div>
           </div>
         </Grid>
@@ -315,6 +300,10 @@ const SignIn = props => {
                   size="large"
                   type="submit"
                   variant="contained"
+                  onClick={() => {
+                    handleSignIn()
+                    
+                  }}
                 >
                   Sign in now
                 </Button>

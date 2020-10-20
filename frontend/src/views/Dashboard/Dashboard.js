@@ -1,28 +1,19 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/styles';
-import { Grid } from '@material-ui/core';
 import PropTypes from 'prop-types';
 
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Box from '@material-ui/core/Box';
-import Paper from '@material-ui/core/Paper';
 
-import {
-  ProjectManagement,
-  Technical,
-  ScopeManagement,
-  Resources,
-  ClientSatisfaction,
-  SecurityITC,
+import { 
   ProjectSummary,
   PMTasks,
   ScopeTasks,
   TechnicalTasks,
   ResourcesTasks,
   OrgChart,
-  MenuNav,
   FiancialsTable,
   ClientTasks,
   FinancialTasks,

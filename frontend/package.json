@@ -1,7 +1,7 @@
 {
   "name": "react-material-dashboard",
   "author": "DeviasIO",
-  "homepage": "https://amart31.github.io/PM-Dashboard",
+  "homepage": "https://amart31.github.io/PM-Dashboard/signin",
   "private": "true",
   "scripts": {
     "start": "react-scripts start",
