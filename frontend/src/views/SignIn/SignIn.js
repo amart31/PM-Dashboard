@@ -171,6 +171,7 @@ const SignIn = props => {
   };
 
   const handleSignIn = event => {
+    event.preventDefault();
     history.push('/dashboard');
   };
 
