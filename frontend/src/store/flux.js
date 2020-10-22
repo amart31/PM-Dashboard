@@ -6,6 +6,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       pointsSize: [{}],
       totalPoints: 0,
       capabilities: [{}],
+      risks: [{}],
       resources: [
 				
         {	'duration': 10,
@@ -97,6 +98,35 @@ const getState = ({ getStore, getActions, setStore }) => {
               
               console.log(store);
               setStore({ scopes: data.items });
+            });
+          })
+          .catch(err => {
+            alert('Fetch error: ', err);
+          });
+      },
+
+      loadRisks: () => {
+        /**
+					fetch().then().then(data => setStore({ "foo": data.bar }))
+        */
+
+       const store = getStore();
+
+        fetch(
+          'https://bah-pm-dashboard-backend.herokuapp.com/risks'
+        )
+          .then(response => {
+            if (response.status !== 200) {
+              alert('Connection error, status ' + response.status);
+              console.log(response);
+              return;
+            }
+            response.json().then(data => {
+              console.log(data);
+              
+              
+              console.log(store);
+              setStore({ risks: data.items });
             });
           })
           .catch(err => {
@@ -480,6 +510,133 @@ const getState = ({ getStore, getActions, setStore }) => {
             alert('Fetch error: ', err);
           });
       },
+
+      createRisk: (
+     
+        riskActions,
+        impact,
+        riskItem,
+        status
+        
+      ) => {
+        const store = getStore();
+        const endpoint =
+					'https://bah-pm-dashboard-backend.herokuapp.com/risks';
+
+  
+        fetch(endpoint, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            accept: 'application/json'
+          },
+          body: JSON.stringify({
+          
+            actions: riskActions,
+            impact: impact,
+            riskItem: riskItem,
+            status: status
+
+            
+          })
+        })
+          .then(function(response) {
+            
+            return response.json();
+          })
+          .then(res => {
+            fetch(
+              'https://bah-pm-dashboard-backend.herokuapp.com/risks'
+            )
+              .then(response => {
+                if (response.status !== 200) {
+                  alert(
+                    'Connection error, status ' +
+											response.status
+                  );
+                  return;
+                }
+                response.json().then(data => {
+                  const store = getStore();
+                  store.risks = data;
+                  setStore({ store });
+                  
+                });
+              })
+              .catch(err => {
+                alert('Fetch error: ', err);
+              });
+          })
+
+          .catch(err => {
+            alert('Fetch error: ', err);
+          });
+      },
+      updateRisks: (
+     
+        riskActions,
+        riskID,
+        impact,
+        riskItem,
+        status
+        
+      ) => {
+        const store = getStore();
+        const endpoint =
+					'https://bah-pm-dashboard-backend.herokuapp.com/risks/' + riskID;
+
+  
+        fetch(endpoint, {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json',
+            accept: 'application/json'
+          },
+          body: JSON.stringify({
+          
+            actions: riskActions,
+            id: riskID,
+            impact: impact,
+            riskItem: riskItem,
+            status: status
+            
+
+            
+          })
+        })
+          .then(function(response) {
+            
+            return response.json();
+          })
+          .then(res => {
+            fetch(
+              'https://bah-pm-dashboard-backend.herokuapp.com/risks'
+            )
+              .then(response => {
+                if (response.status !== 200) {
+                  alert(
+                    'Connection error, status ' +
+											response.status
+                  );
+                  return;
+                }
+                response.json().then(data => {
+                  const store = getStore();
+                  store.risks = data;
+                  setStore({ store });
+                 
+                });
+              })
+              .catch(err => {
+                alert('Fetch error: ', err);
+              });
+          })
+
+          .catch(err => {
+            alert('Fetch error: ', err);
+          });
+      },
+
 
 
     }
