@@ -34,7 +34,7 @@ function RisksUpdateForm() {
   const classes = useStyles();
 
   const [riskActions, setRiskActions] = React.useState('');
-  const [impact, setImpact] = React.useState('');
+  const [impactLevel, setImpactLevel] = React.useState('');
   const [riskItem, setRiskItem] = React.useState('');
   const [status, setStatus] = React.useState('');
   const [riskID, setRiskID] = React.useState('');
@@ -43,26 +43,22 @@ function RisksUpdateForm() {
   
   const handleRiskActions = (event) => {
     setRiskActions(event.target.value);
-   
   };
 
   const handleRiskID = (event) => {
     setRiskID(event.target.value);
-   
   };
 
-  const handleImpact = (event) => {
-    setImpact(event.target.value);
-   
+  const handleImpactLevel = (event) => {
+    setImpactLevel(event.target.value);
   };
+
   const handleRiskItem = (event) => {
     setRiskItem(event.target.value);
-   
   };
   
   const handleStatus = (event) => {
     setStatus(event.target.value);
-   
   };
 
   const handleClick = (event) => {
@@ -147,8 +143,8 @@ function RisksUpdateForm() {
           <Select
             labelId='impactLabel'
             id="impact"
-            value={impact}
-            onChange={handleImpact}
+            value={impactLevel}
+            onChange={handleImpactLevel}
           >
             <MenuItem value={'Low'}>Low</MenuItem>
             <MenuItem value={'Medium'}>Medium</MenuItem>
@@ -180,7 +176,7 @@ function RisksUpdateForm() {
         actions.updateRisks(
           riskActions,
           riskID,
-          impact,
+          impactLevel,
           riskItem,
           status
           );
@@ -202,7 +198,7 @@ function RisksUpdateForm() {
 RisksUpdateForm.contextTypes = {
   actions: PropTypes.string,
   riskID: PropTypes.number,
-  impact: PropTypes.string,
+  impactLevel: PropTypes.string,
   riskItem: PropTypes.string,
   status: PropTypes.string,
   

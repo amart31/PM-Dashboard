@@ -21,7 +21,8 @@ import Divider from '@material-ui/core/Divider';
 import { 
   RisksForm,
   RisksTable,
-  ModifyRisksForm
+  ModifyRisksForm,
+  RisksChart
   
 } from './components';
 
@@ -51,6 +52,8 @@ export default function BasicTable() {
       </Typography>
    
 
+      <br/>
+      <RisksChart />
 
     <br/>
     <RisksTable />

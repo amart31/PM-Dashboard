@@ -576,7 +576,7 @@ const getState = ({ getStore, getActions, setStore }) => {
      
         riskActions,
         riskID,
-        impact,
+        impactLevel,
         riskItem,
         status
         
@@ -596,7 +596,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           
             actions: riskActions,
             id: riskID,
-            impact: impact,
+            impact: impactLevel,
             riskItem: riskItem,
             status: status
             
