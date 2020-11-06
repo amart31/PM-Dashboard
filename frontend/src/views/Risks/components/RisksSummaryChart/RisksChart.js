@@ -73,8 +73,8 @@ const RisksChart = props => {
         data: [first.length, second.length,  third.length],
         backgroundColor: [
           theme.palette.primary.main,
-          theme.palette.error.main,
           theme.palette.warning.main,
+          theme.palette.error.main,
         ],
         borderWidth: 8,
         borderColor: theme.palette.white,
@@ -117,13 +117,13 @@ const RisksChart = props => {
       title: 'Medium',
       value: second.length,
       icon: <WorkOutlineIcon />,
-      color: theme.palette.error.main
+      color: theme.palette.warning.main
     },
     {
       title: 'High',
       value: third.length,
       icon: <AssignmentTurnedInIcon />,
-      color: theme.palette.warning.main
+      color: theme.palette.error.main
     }
   ];
 
